@@ -1,0 +1,57 @@
+<div class="container" ng-model="addForm" ng-show="addForm">
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand">Your Meals</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <form class="navbar-form navbar-left" role="search">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search" ng-model="search">
+          </div>
+          <!-- <button type="submit" class="btn btn-info">Submit</button> -->
+        </form>
+        <ul class="nav navbar-nav">
+          <li><a href="#">Add a Recipe <span class="sr-only">(current)</span></a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div>
+  </nav>
+
+  <div class="col-xs-8 col-xs-offset-2 col-lg-6 col-lg-offset-3">
+    <h1 id="add">Add a New Recipe</h1>
+    <br>
+
+    <form>
+      <div class="form-group">
+        <label for="title">The title of the Recipe</label>
+        <input type="text" class="form-control" id="title" placeholder="Recipe Title">
+      </div>
+      <div class="form-group">
+        <label for="ingredients">Please list all ingredients with amount</label>
+        <!-- <input type="text" class="form-control" id="ingredients" placeholder="Ingredients"> -->
+        <textarea name="textarea" rows="12" cols="65">List ingredients here...</textarea>
+      </div>
+      <div class="form-group">
+        <label for="directions">Please describe how to make/cook/bake in detail</label>
+        <!-- <input type="text" class="form-control" id="directions" placeholder="Directions"> -->
+        <textarea name="textarea" rows="12" cols="65">Describe the directions here...</textarea>
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+  </div>
+
+</div> <!-- close container -->

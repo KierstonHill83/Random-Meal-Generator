@@ -1,4 +1,6 @@
-app.controller('mealGenerator', function($scope) {
+app.controller('RandomMeals', function($scope) {
+
+	$scope.addForm = false;
 
 	// getResults = function(searchTerm) {
 	// 	httpFactory.get(url)

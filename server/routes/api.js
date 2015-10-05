@@ -29,7 +29,8 @@ router.post('/recipes', function(req, res, next) {
 	newRecipe = new Recipe({
 		title: req.body.title,
 		ingredients: req.body.ingredients,
-		directions: req.body.directions
+		directions: req.body.directions,
+		serves: req.body.serves
 	});
 	newRecipe.save(function(err, data) {
 		if(err) {
@@ -46,6 +47,7 @@ router.put('/recipe/:id', function(req, res, next) {
 		recipe.title = req.body.title;
 		recipe.ingredients = req.body.ingredients;
 		recipe.directions = req.body.directions;
+		recipe.serves = req.body.serves;
 		project.save(function(err) {
 			if(err) {
 			res.json({'ERROR': err});

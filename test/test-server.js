@@ -18,7 +18,8 @@ describe('Recipes', function() {
 		var newRecipe = new Recipe ({
 			title: 'Pancakes',
 			ingredients: 'Milk, Oil, Flour',
-			directions: 'Mix together, bake for 30 minutes'
+			directions: 'Mix together, bake for 30 minutes',
+			serves: 4
 		});
 		newRecipe.save(function(err) {
 			done();
@@ -41,9 +42,11 @@ describe('Recipes', function() {
 				res.body[0].should.have.property('title');
 				res.body[0].should.have.property('ingredients');
 				res.body[0].should.have.property('directions');
+				res.body[0].should.have.property('serves');
 				res.body[0].title.should.equal('Pancakes');
 				res.body[0].ingredients.should.equal('Milk, Oil, Flour');
 				res.body[0].directions.should.equal('Mix together, bake for 30 minutes');
+				res.body[0].serves.should.equal(4);
 				done();
 			});
 	});
