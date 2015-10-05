@@ -30,3 +30,7 @@ Too much time is wasted deciding what to cook each day.
 
 1. Checkboxes to filter recipes: vegetarian, allergies
 2. Have recipes with shared ingredients on consecutive days
+3. Advanced search on API's -- multiple words
+4. Create shopping list
+5. Base recipes off seasonal foods
+6. Recipes based off weather in the area (summer vs winter)
