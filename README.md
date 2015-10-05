@@ -34,3 +34,7 @@ Too much time is wasted deciding what to cook each day.
 4. Create shopping list
 5. Base recipes off seasonal foods
 6. Recipes based off weather in the area (summer vs winter)
+7. On home page have a way to get a random meal with filters
+8. Login to plan meals for the whole week
+9. Dates on the calendar(angular.moment?)
+10. Have more then 1 week on the calendar, maybe a month?

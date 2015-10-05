@@ -8,6 +8,6 @@ var Recipe = new Schema({
 	serves: Number
 });
 
-mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/node-recipe');
+// mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/node-recipe');
 
 module.exports = mongoose.model('recipes', Recipe);

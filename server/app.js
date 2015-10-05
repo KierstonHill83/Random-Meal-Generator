@@ -10,6 +10,9 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var http = require('http');
 var mongoose = require('mongoose');
+var session = require('express-session');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 
 
 // *** routes *** //
@@ -44,6 +47,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../client')));
+app.use(session ({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 
 // *** main routes *** //
@@ -51,6 +57,13 @@ app.use('/api/', recipe);
 app.use('/', function(req, res) {
   res.sendFile(path.join(__dirname, '../client/views', 'index.html'));
 });
+
+
+// *** passport config *** //
+var User = require('./models/user');
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 
 // catch 404 and forward to error handler
