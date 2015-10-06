@@ -1,16 +1,17 @@
-app.controller('RandomMeals', function($scope) {
+app.controller('RandomMeals', function($scope, httpFactory) {
 
 	$scope.addForm = false;
 	$scope.loginForm = false;
 	$scope.registerForm = false;
 
-	// getResults = function(searchTerm) {
-	// 	httpFactory.get(url)
-	// 	.then(function(response) {
-	// 		$scope.results = response.data;
-	// 	});
-	// };
+	getResults = function(url) {
+		httpFactory.jsonp(url)
+		.then(function(response) {
+			$scope.results = response.data;
+			console.log($scope.results);
+		});
+	};
 
-	// getResults('https://api.edamam.com/search');
+	// using jsonp rather than get
 
 });
