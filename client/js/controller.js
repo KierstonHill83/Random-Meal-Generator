@@ -1,6 +1,8 @@
 app.controller('RandomMeals', function($scope) {
 
 	$scope.addForm = false;
+	$scope.loginForm = false;
+	$scope.registerForm = false;
 
 	// getResults = function(searchTerm) {
 	// 	httpFactory.get(url)

@@ -25,6 +25,7 @@ Too much time is wasted deciding what to cook each day.
 5. Express
 6. Passport
 7. API
+8. Gulp
 
 ### Stretch Goals
 
