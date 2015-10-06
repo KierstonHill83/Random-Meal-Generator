@@ -1,10 +1,23 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px 'Lato', sans-serif;;
 }
 
 a {
   color: #00B7FF;
+}
+
+.navbar-brand {
+	font-size: 25px;
+}
+
+.page-scroll {
+	font-size: 20px;
+}
+
+nav {
+	background color: lightgray;
+	opacity: 0.7;
 }
 
 #add {
@@ -39,7 +52,7 @@ a {
   margin: 0;
 }
 
-#img-header{
+#img-header {
 	font-size: 3em;
 }
 
@@ -63,4 +76,13 @@ a {
 
 .social-btns {
 	margin: 0;
+}
+
+.info {
+	font-size: 35px;
+}
+
+#info-section {
+	text-align: center;
+	margin-top: 60px;
 }

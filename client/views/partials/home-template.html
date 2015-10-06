@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
 
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -14,7 +14,7 @@
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+     <!--  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <form class="navbar-form navbar-left" role="search">
           <div class="form-group">
             <input type="text" class="form-control" placeholder="Search" ng-model="search">
@@ -29,11 +29,42 @@
           <li><a href="#">Contact</a></li>
           <li><a href="#">About</a></li>
         </ul>
-      </div><!-- /.navbar-collapse -->
-    </div>
+      </div> --><!-- /.navbar-collapse -->
+    <!-- </div>
   </nav>
 
-</div> <!-- close container -->
+</div> --> <!-- close container -->
+
+<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+          <i class="fa fa-bars"></i>
+        </button>
+        <a class="navbar-brand page-scroll" href="#page-top">
+          <i class="fa fa-play-circle"></i>  
+          	<span class="light"></span> Home
+        </a>
+			</div>
+			<div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+        <ul class="nav navbar-nav">
+            <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+          <li class="hidden active">
+            <a href="#page-top"></a>
+          </li>
+          <li>
+            <a class="page-scroll" href="#about">About</a>
+          </li>
+          <li>
+            <a class="page-scroll" href="#download">Download</a>
+          </li>
+          <li>
+            <a class="page-scroll" href="#contact">Contact</a>
+          </li>
+        </ul>
+    	</div>
+		</div>
+	</nav>
 
 
 	<div id="home-page">
@@ -50,6 +81,28 @@
 	      </div>
 	    </div> <!-- end container div -->
 	  </div> <!-- end header div -->
+	</div>
+
+
+	<div class="container" id="info-section">
+		<div class="row">
+			<div class="col-lg-12">
+				<!-- <h2>About Us</h2>
+				<hr class="small"> -->
+				<div class="col-md-4">
+					<h2 class="info">Some text</h2>
+					<hr class="small">
+				</div>
+				<div class="col-md-4">
+					<h2 class="info">Get a Random Recipe</h2>
+					<hr class="small">
+				</div>
+				<div class="col-md-4">
+					<h2 class="info">Some text</h2>
+					<hr class="small">
+				</div>
+			</div>
+		</div>
 	</div>
 
 
@@ -77,7 +130,7 @@
 		</div>
 	</div>
 
-	<br>
+	<br><br>
 	<footer>
 		<div class="container">
 			<div class="row">
@@ -87,13 +140,13 @@
 							<a href="" class="btn btn-default btn-lg social"><img class="img-social" src="../img/twitter.png"> TWITTER</a>
 						</li>
 						<li>
-							<a href="" class="btn btn-default btn-lg social"><img class="img-social2" src="../img/github.png"> GITHUB</a>
+							<a href="https://github.com/KierstonHill83" class="btn btn-default btn-lg social"><img class="img-social2" src="../img/github.png"> GITHUB</a>
 						</li>
 						<li>
-							<a href="" class="btn btn-default btn-lg social"><img class="img-social2" src="../img/linkedin.png"> LINKEDIN</a>
+							<a href="https://www.linkedin.com/profile/view?id=AAIAABnPlaQB6H340z1FAI3QzrKdfVxaD73qsSs&trk=nav_responsive_tab_profile" class="btn btn-default btn-lg social"><img class="img-social2" src="../img/linkedin.png"> LINKEDIN</a>
 						</li>
 						<li>
-							<a href="" class="btn btn-default btn-lg social"><img class="img-social" src="../img/facebook.jpg"> FACEBOOK</a>
+							<a href="https://www.facebook.com/kierston.r.hill" class="btn btn-default btn-lg social"><img class="img-social" src="../img/facebook.jpg"> FACEBOOK</a>
 						</li>
 					</ul>
 					<p class="copyright text-muted small">Copyright &copy Kierston Hill 2015. All Rights Reserved</p>
@@ -101,6 +154,8 @@
 			</div>
 		</div>
 	</footer>
+
+	
 
 
 
