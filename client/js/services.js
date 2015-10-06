@@ -1,18 +1,4 @@
-app.factory('externalRecipeFactory', ['$http', function($http) {
-
-	var obj = {};
-
-	obj.get = function(url) {
-		return $http.jsonp(url);
-	};
-
-	return obj;
-
-
-}]);
-
-
-app.factory('internalRecipeFactory', ['$http', function($http) {
+app.factory('recipeFactory', ['$http', function($http) {
 
 	var obj = {};
 
@@ -35,3 +21,5 @@ app.factory('internalRecipeFactory', ['$http', function($http) {
 	return obj;
 
 }]);
+
+	

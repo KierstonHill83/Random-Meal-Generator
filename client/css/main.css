@@ -87,3 +87,16 @@ a {
 .list-inline {
 	margin-left: 258px;
 }
+
+.calendar {
+	width: 200px;
+	height: 280px;
+	border: 2px solid;
+	text-align: center;
+	font-weight: bold;
+}
+
+.calendar-row {
+	margin-left: -130px;
+	margin-right: -130px;
+}

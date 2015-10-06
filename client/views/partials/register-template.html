@@ -7,8 +7,8 @@
       <form class="form-group" role="form" action="/register" method="post">
         <input type="email" class="form-control form-group" id="email" name="username" placeholder="Email">
         <input type="password" class="form-control form-group" id="password" name="password" placeholder="Password">
-        <button type="submit" class="btn btn-primary" ng-click="registerForm = false">Submit</button>
-        <button type="button" class="btn btn-danger">Cancel</button>
+        <button type="button" class="btn btn-primary" ng-click="registerForm = false; personalPage = true">Submit</button>
+        <button type="button" class="btn btn-danger" ng-click="loginForm = false; homePage = false">Cancel</button>
       </form>
     </div>
   </div>

@@ -1,0 +1,15 @@
+<div class="container" ng-model="loginForm" ng-show="loginForm">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h1>Login</h1>
+      <br>
+
+      <form class="form-group" role="form" action="/login" method="post">
+        <input type="text" class="form-control form-group" id="email" name="username" placeholder="Email">
+        <input type="password" class="form-control form-group" id="password" name="password" placeholder="Password">
+        <button type="button" class="btn btn-primary" ng-click="loginForm = false; personalPage = true">Submit</button>
+        <button type="button" class="btn btn-danger" ng-click="loginForm = false; homePage = false">Cancel</button>
+      </form>
+    </div>
+  </div>
+</div>

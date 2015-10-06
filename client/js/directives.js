@@ -10,7 +10,7 @@ app.directive('loginPage', function() {
 	return {
 		restrict: 'E',
 		transclude: true,
-		templateUrl: '../views/login-template.html'
+		templateUrl: '../views/partials/login-template.html'
 	};
 });
 
@@ -18,7 +18,7 @@ app.directive('registerPage', function() {
 	return {
 		restrict: 'E',
 		transclude: true,
-		templateUrl: '../views/register-template.html'
+		templateUrl: '../views/partials/register-template.html'
 	};
 });
 
