@@ -1,71 +1,72 @@
-<div class="container">
+<div ng-model="homePage" ng-hide="homePage">
+	<div class="container">
 
-  <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
+	  <nav class="navbar navbar-default navbar-fixed-top">
+	    <div class="container">
 
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand">Meals</a>
-      </div>
+	      <div class="navbar-header">
+	        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	          <span class="sr-only">Toggle navigation</span>
+	          <span class="icon-bar"></span>
+	          <span class="icon-bar"></span>
+	          <span class="icon-bar"></span>
+	        </button>
+	        <a class="navbar-brand">Meals</a>
+	      </div>
 
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <form class="navbar-form navbar-left" role="search">
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search" ng-model="search">
-          </div>
-          <!-- <button type="submit" class="btn btn-info">Submit</button> -->
-        </form>
-        <ul class="nav navbar-nav navbar-left">
-          <li ng-click="loginForm = true"><a href="#">Login</a></li>
-          <li ng-click="registerForm = true"><a href="#">Register</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-        	<li><a href="#info-section">Get a Recipe Now</a></li>
-          <li><a href="#contact-info">Contact</a></li>
-          <li><a href="#info-section">About</a></li>
-        </ul>
-      </div> <!-- .navbar-collapse -->
-    </div>
-  </nav>
+	      <!-- Collect the nav links, forms, and other content for toggling -->
+	      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	        <form class="navbar-form navbar-left" role="search">
+	          <div class="form-group">
+	            <input type="text" class="form-control" placeholder="Search" ng-model="search">
+	          </div>
+	          <!-- <button type="submit" class="btn btn-info">Submit</button> -->
+	        </form>
+	        <ul class="nav navbar-nav navbar-left">
+	          <li ng-click="loginForm = true; homePage = true"><a href="#">Login</a></li>
+	          <li ng-click="registerForm = true; homePage = true"><a href="#">Register</a></li>
+	        </ul>
+	        <ul class="nav navbar-nav navbar-right">
+	        	<li><a href="#info-section">Get a Recipe Now</a></li>
+	          <li><a href="#contact-info">Contact</a></li>
+	          <li><a href="#info-section">About</a></li>
+	        </ul>
+	      </div> <!-- .navbar-collapse -->
+	    </div>
+	  </nav>
 
-</div> <!-- close container
+	</div> <!-- close container
 
-<!-- <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-          <i class="fa fa-bars"></i>
-        </button>
-        <a class="navbar-brand page-scroll" href="#page-top">
-          <i class="fa fa-play-circle"></i>  
-          	<span class="light"></span> Home
-        </a>
+	<!-- <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+	          <i class="fa fa-bars"></i>
+	        </button>
+	        <a class="navbar-brand page-scroll" href="#page-top">
+	          <i class="fa fa-play-circle"></i>  
+	          	<span class="light"></span> Home
+	        </a>
+				</div>
+				<div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+	        <ul class="nav navbar-nav">
+	            <!-- Hidden li included to remove active class from about link when scrolled up past about section
+	          <!-- <li class="hidden active">
+	            <a href="#page-top"></a>
+	          </li>
+	          <li>
+	            <a class="page-scroll" href="#info-section">About</a>
+	          </li>
+	          <li>
+	            <a class="page-scroll" href="#download">Download</a>
+	          </li>
+	          <li>
+	            <a class="page-scroll" href="#contact-info">Contact</a>
+	          </li>
+	        </ul>
+	    	</div>
 			</div>
-			<div class="collapse navbar-collapse navbar-right navbar-main-collapse">
-        <ul class="nav navbar-nav">
-            <!-- Hidden li included to remove active class from about link when scrolled up past about section
-          <!-- <li class="hidden active">
-            <a href="#page-top"></a>
-          </li>
-          <li>
-            <a class="page-scroll" href="#info-section">About</a>
-          </li>
-          <li>
-            <a class="page-scroll" href="#download">Download</a>
-          </li>
-          <li>
-            <a class="page-scroll" href="#contact-info">Contact</a>
-          </li>
-        </ul>
-    	</div>
-		</div>
-	</nav> --> 
+		</nav> --> 
 
 
 	<div id="home-page">
@@ -160,7 +161,7 @@
 			</div>
 		</div>
 	</footer>
-
+</div>
 	
 
 

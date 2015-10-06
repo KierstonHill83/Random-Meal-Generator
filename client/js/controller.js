@@ -1,4 +1,4 @@
-app.controller('RandomMeals', function($scope, httpFactory) {
+app.controller('RandomMeals', function($scope, $http, externalRecipeFactory, internalRecipeFactory) {
 
 	$scope.addForm = false;
 	$scope.loginForm = false;
@@ -6,14 +6,56 @@ app.controller('RandomMeals', function($scope, httpFactory) {
 	$scope.randomMealForm = false;
 	$scope.recipeInfo = false;
 
-	getResults = function(url) {
-		httpFactory.get(url)
-		.then(function(response) {
-			$scope.results = response.data;
-			console.log($scope.results);
-		});
-	};
+	// getResults = function(url) {
+	// 	externalRecipeFactory.get(url)
+	// 	.then(function(response) {
+	// 		$scope.results = JSON.stringify(response.data);
+	// 		console.log($scope.results);
+	// 	});
+	// };
 
-	// using jsonp rather than get
+		var req = {
+      method: 'POST',
+      url: 'http://food2fork.com/api/search?key=',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
+
+    console.log(req);
+
+    
+    $http(req).success(function(data, status){
+
+    	console.log(data)
+
+    })
+    .error(function(data, status){
+    	console.log(arguments)
+    });
+
+// 	var config = {
+//             headers: {'Content-Type': 'application/json'},
+//         };
+
+// 	var url = 'http://food2fork.com/api/search?key=&q=shredded%20chicken';
+
+// $http.get(url, config)
+//     .success(function(data){
+//         console.log(data);
+//     });
+
+	// // using no factory
+	// 	getResults = function(url) {
+	// 	externalRecipeFactory.get(url)
+	// 	.then(function(response) {
+	// 		console.log(response)
+	// 		// $scope.results = JSON.stringify(response.data);
+	// 		// console.log($scope.results);
+	// 	});
+	// };
+
+	// // using jsonp rather than get
+	// getResults('http://food2fork.com/api/search?key=&q=shredded%20chicken?callback=JSON_CALLBACK');
 
 });

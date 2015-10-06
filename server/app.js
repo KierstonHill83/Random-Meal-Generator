@@ -16,6 +16,7 @@ var LocalStrategy = require('passport-local').Strategy;
 
 
 // *** routes *** //
+var routes = require('./routes/index.js');
 var recipe = require('./routes/api.js');
 
 
@@ -53,6 +54,7 @@ app.use(passport.session());
 
 
 // *** main routes *** //
+app.use('/', routes);
 app.use('/api/', recipe);
 app.use('/', function(req, res) {
   res.sendFile(path.join(__dirname, '../client/views', 'index.html'));

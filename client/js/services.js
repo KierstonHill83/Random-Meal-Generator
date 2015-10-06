@@ -1,4 +1,18 @@
-app.factory('httpFactory', ['$http', function($http) {
+app.factory('externalRecipeFactory', ['$http', function($http) {
+
+	var obj = {};
+
+	obj.get = function(url) {
+		return $http.jsonp(url);
+	};
+
+	return obj;
+
+
+}]);
+
+
+app.factory('internalRecipeFactory', ['$http', function($http) {
 
 	var obj = {};
 
@@ -6,7 +20,18 @@ app.factory('httpFactory', ['$http', function($http) {
 		return $http.get(url);
 	};
 
-	return obj;
+	obj.post = function(url, payload) {
+		return $http.post(url, payload);
+	};
 
+	obj.put = function(url, payload) {
+		return $http.put(url, payload);
+	};
+
+	obj.delete = function(url) {
+		return $http.delete(url);
+	};
+
+	return obj;
 
 }]);
