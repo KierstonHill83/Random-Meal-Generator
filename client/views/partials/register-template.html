@@ -1,16 +1,22 @@
-<div class="container" ng-model="registerForm" ng-show="registerForm">
+<div class="container" ng-model="registerTemplate" ng-show="registerTemplate">
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
       <h1>Register</h1>
       <br>
+      <div ng-show="error" class="alert alert-danger">{{errorMessage}}</div>
 
-      <form class="form-group" role="form" action="/register" method="post">
-        <input type="email" class="form-control form-group" id="email" name="username" placeholder="Email">
-        <input type="password" class="form-control form-group" id="password" name="password" placeholder="Password">
-        <button type="button" class="btn btn-primary" ng-click="registerForm = false; personalPage = true">Submit</button>
-        <button type="button" class="btn btn-danger" ng-click="loginForm = false; homePage = false">Cancel</button>
+      <form class="form-group" ng-submit="register()">
+        <div class="form-group">
+          <label>Username</label>
+          <input type="text" class="form-control" name="username" ng-model="registerForm.username" required>
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" class="form-control" name="password" ng-model="registerForm.password" required>
+        </div>
+        <button type="button" class="btn btn-primary" ng-click="registerTemplate = false; personalPage = true" ng-disabled="disabled">Submit</button>
+        <button type="button" class="btn btn-danger" ng-click="registerTemplate = false; homePage = false">Cancel</button>
       </form>
     </div>
   </div>
 </div>
-  <!-- in line form instead??? -->

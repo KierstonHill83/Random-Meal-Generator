@@ -23,8 +23,8 @@
 	          <!-- <button type="submit" class="btn btn-info">Submit</button> -->
 	        </form>
 	        <ul class="nav navbar-nav navbar-left">
-	          <li ng-click="loginForm = true; homePage = true"><a href="#">Login</a></li>
-	          <li ng-click="registerForm = true; homePage = true"><a href="#">Register</a></li>
+	          <li ng-click="loginTemplate = true; homePage = true"><a href="#">Login</a></li>
+	          <li ng-click="registerTemplate = true; homePage = true"><a href="#">Register</a></li>
 	        </ul>
 	        <ul class="nav navbar-nav navbar-right">
 	        	<li><a href="#info-section">Get a Recipe Now</a></li>
@@ -37,39 +37,6 @@
 
 	</div> <!-- close container
 
-	<!-- <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-			<div class="container">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-	          <i class="fa fa-bars"></i>
-	        </button>
-	        <a class="navbar-brand page-scroll" href="#page-top">
-	          <i class="fa fa-play-circle"></i>  
-	          	<span class="light"></span> Home
-	        </a>
-				</div>
-				<div class="collapse navbar-collapse navbar-right navbar-main-collapse">
-	        <ul class="nav navbar-nav">
-	            <!-- Hidden li included to remove active class from about link when scrolled up past about section
-	          <!-- <li class="hidden active">
-	            <a href="#page-top"></a>
-	          </li>
-	          <li>
-	            <a class="page-scroll" href="#info-section">About</a>
-	          </li>
-	          <li>
-	            <a class="page-scroll" href="#download">Download</a>
-	          </li>
-	          <li>
-	            <a class="page-scroll" href="#contact-info">Contact</a>
-	          </li>
-	        </ul>
-	    	</div>
-			</div>
-		</nav> --> 
-
-
-	<div id="home-page">
 	 <!-- Header -->
 	  <div class="intro-header">
 	    <div class="container">
@@ -89,8 +56,6 @@
 	<div class="container" id="info-section">
 		<div class="row">
 			<div class="col-lg-12">
-				<!-- <h2>About Us</h2>
-				<hr class="small"> -->
 				<div class="col-md-4">
 					<h2 class="info">Some text</h2>
 					<hr class="small">
@@ -100,8 +65,7 @@
 					<h2 class="info">Get a Random Recipe</h2>
 					<hr class="small">
 					<button type="button" class="btn btn-lg btn-info" ng-click="randomMealForm = true">Click for a Random Recipe</button>
-					<!-- call a directive in a directive -->
-					<random-meal></random-meal>
+					
 				</div>
 				<div class="col-md-4">
 					<h2 class="info">Some text</h2>
@@ -111,6 +75,8 @@
 			</div>
 		</div>
 	</div>
+
+	<random-meal></random-meal>
 
 
 	<div class="row" id="img-row">
@@ -161,7 +127,7 @@
 			</div>
 		</div>
 	</footer>
-</div>
+</div> <!-- close model -->
 	
 
 
