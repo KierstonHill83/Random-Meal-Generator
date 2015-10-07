@@ -7,6 +7,8 @@ app.controller('RandomMeals', function($scope, $http, recipeFactory) {
 	$scope.recipeInfo = false;
 	$scope.personalPage = false;
 
+  $scope.findRecipe = "";
+
 	getResults = function(url) {
 		recipeFactory.get(url)
 		.then(function(response) {
@@ -17,7 +19,47 @@ app.controller('RandomMeals', function($scope, $http, recipeFactory) {
 
 	getResults('/api/recipes');
 
+  $scope.postRecipe = function() {
+    var payload = $scope.project;
+    recipeFactory.post('/api/recipes', payload)
+    .then(function(response) {
+      console.log(response);
+      $scope.recipes.push(response.data);
+      $scope.project = {};
+    });
+  };
+
+  $scope.editRecipe = function(id) {
+    $scope.findRecipe = '/api/recipe/' + id;
+    recipeFactory.get($scope.findRecipe)
+    .then(function(response) {
+      console.log(response);
+      getRecipes('/api/recipes');
+      $scpe.recipe = {};
+    });
+  };
+
+  $scope.updateRecipe = function() {
+    var update = $scope.recipe;
+    recipeFactory.put($scope.findRecipe, update)
+    .then(function(response) {
+      console.log(response);
+      getRecipes('/api/recipes');
+      $scope.recipe = {};
+    });
+  };
+
+  $scope.remoteRecipe = function(id) {
+    $scope.findRecipe = '/api/recipe/' + id;
+    recipeFactory.delete($scope.findRecipe)
+    .then(function(response) {
+      console.log(response);
+      getRecipes('/api/recipes');
+    });
+  };
+
 });
+
 
 app.controller('loginController',
   ['$scope', '$location', 'AuthService',
