@@ -43,21 +43,22 @@ function reciepePuppyService(ingredients, query) {
 }
 
 // Recipe data from food2fork
-function foodForkService(query) {
-	var url = 'http://food2fork.com/api/search?key='+key+'&q='+query;
-	http.get(url, function(res) {
-		var body = "";
-		res.on('data', function(chunk) {
-			body += chunk;
-		});
-		res.on('end', function() {
-			var output = JSON.parse(body);
-			console.log("got a response: ", output);
-		});
-	}).on('error', function(e) {
-		console.log('Got an error:', e);
-	});
-}
+// function foodForkService(query) {
+// 	var url = 'http://food2fork.com/api/search?key='+key+'&q='+query;
+// 	http.get(url, function(res) {
+// 		var body = "";
+// 		res.on('data', function(chunk) {
+// 			body += chunk;
+// 		});
+// 		res.on('end', function() {
+// 			var output = JSON.parse(body);
+// 			console.log("got a response: ", output);
+// 		});
+// 	}).on('error', function(e) {
+// 		console.log('Got an error:', e);
+// 	});
+// }
+// console.log(foodForkService('cake'));
 
 // POST ALL recipes
 router.post('/recipes', function(req, res, next) {

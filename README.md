@@ -26,6 +26,7 @@ Too much time is wasted deciding what to cook each day.
 6. Passport
 7. API
 8. Gulp
+9. Mocha/Chai
 
 ### Stretch Goals
 
