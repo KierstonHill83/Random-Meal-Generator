@@ -58,7 +58,6 @@ function foodForkService(query) {
 		console.log('Got an error:', e);
 	});
 }
-console.log(foodForkService(chicken));
 
 // POST ALL recipes
 router.post('/recipes', function(req, res, next) {
