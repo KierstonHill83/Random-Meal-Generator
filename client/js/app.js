@@ -1,4 +1,4 @@
-var app = angular.module('mealGenerator', ['ngRoute']);
+var app = angular.module('mealGenerator', ['ngRoute', 'ngResource']);
 
 app.config(function($routeProvider) {
 	$routeProvider

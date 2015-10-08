@@ -24,7 +24,7 @@ a {
 	text-align: center;
 	background: url(/img/vegetables.jpg) no-repeat center center;
 	background-size: cover;
-	height: 680px;
+	height: 730px;
 }
 
 .intro-message > h1 {
@@ -86,15 +86,17 @@ a {
 
 .calendar {
 	width: 200px;
-	height: 280px;
+	height: 260px;
 	border: 2px solid;
 	text-align: center;
 	font-weight: bold;
+	background-color: white;
+	margin: 1px;
 }
 
 .calendar-row {
-	margin-left: -130px;
-	margin-right: -130px;
+	margin-left: -137px;
+	margin-right: -137px;
 }
 
 #title {
@@ -133,7 +135,7 @@ a {
 #contact-panel {
 	position: absolute;
 	width: 470px;
-	margin-left: 180px;
+	margin-left: 190px;
 	margin-top: 230px;
 	text-align: left;
 	border-radius: 3%;
@@ -147,14 +149,43 @@ a {
 	text-align: center;
 	background: url(/img/basket.jpg) no-repeat center center;
 	background-size: cover;
-	height: 100%;
+	height: 800px;
 	width: 100%;
 	opacity: 0.8;
 }
 
-.all-calendar {
-	background-color: white;
+.calendar-header {
+	text-shadow: 4px 4px 7px black;
+  font-size: 6em;
+  color: white;
 }
+
+#login-background {
+	text-align: center;
+	background: url(/img/brownFaded.jpg) no-repeat center center;
+  background-size: cover;
+	min-height: 780px;
+	min-width: 100%;
+}
+
+.login-header {
+	font-size: 5em;
+}
+
+.login-input {
+	height: 45px;
+	width: 600px;
+	margin: auto;
+}
+
+#register-background {
+	text-align: center;
+	background: url(/img/brownFaded.jpg) no-repeat center center;
+  background-size: cover;
+	min-height: 780px;
+	min-width: 100%;
+}
+
 /*#outer-personal {
 	background-color: white;
 	height: 100%;
