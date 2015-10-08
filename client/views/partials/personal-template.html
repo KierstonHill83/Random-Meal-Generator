@@ -1,77 +1,79 @@
 <!-- have calendar, button to add a new recipe, search to find other recipes, filter checkboxes -->
-<div ng-model="personalPage" ng-show="personalPage">
+<div id="outer-personal">
+	<div ng-model="personalPage" ng-show="personalPage" id="personal-background">
 
-  <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand">Your Meals</a>
-      </div>
+	  <nav class="navbar navbar-default navbar-fixed-top">
+	    <div class="container">
+	      <div class="navbar-header">
+	        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	          <span class="sr-only">Toggle navigation</span>
+	          <span class="icon-bar"></span>
+	          <span class="icon-bar"></span>
+	          <span class="icon-bar"></span>
+	        </button>
+	        <a class="navbar-brand">Your Meals</a>
+	      </div>
 
-      <!-- <div ng-controller="logoutController">
-			  <a ng-click='logout()' class="btn btn-default">Logout</a>
-			</div> -->
+	      <!-- <div ng-controller="logoutController">
+				  <a ng-click='logout()' class="btn btn-default">Logout</a>
+				</div> -->
 
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <form class="navbar-form navbar-left" role="search">
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search" ng-model="search">
-          </div>
-          <!-- <button type="submit" class="btn btn-info">Submit</button> -->
-        </form>
-        <ul class="nav navbar-nav">
-          <li ng-click="addForm = true"><a href="#">Add a Recipe <span class="sr-only">(current)</span></a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">Contact</a></li>
-          <li><a href="#">About</a></li>
-        </ul>
-      </div><!-- /.navbar-collapse -->
-    </div>
-  </nav>
+	      <!-- Collect the nav links, forms, and other content for toggling -->
+	      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	        <form class="navbar-form navbar-left" role="search">
+	          <div class="form-group">
+	            <input type="text" class="form-control" placeholder="Search" ng-model="search">
+	          </div>
+	          <!-- <button type="submit" class="btn btn-info">Submit</button> -->
+	        </form>
+	        <ul class="nav navbar-nav">
+	          <li ng-click="addForm = true"><a href="#">Add a Recipe <span class="sr-only">(current)</span></a></li>
+	        </ul>
+	        <ul class="nav navbar-nav navbar-right">
+	          <li><a href="#">Contact</a></li>
+	          <li><a href="#">About</a></li>
+	        </ul>
+	      </div><!-- /.navbar-collapse -->
+	    </div>
+	  </nav>
 
-  <br><br><br>
-	<div class="container">
-		<h1 class="text-center">Weekly Calendar</h1>
-		<div class="row calendar-row">
-			<div class="col-md-12 calendar">
-				<h3>Sunday</h3>
-				<hr class="small">
-			</div>
-			<div class="col-md-12 calendar">
-				<h3>Monday</h3>
-				<hr class="small">
-			</div>
-			<div class="col-md-12 calendar">
-				<h3>Tuesday</h3>
-				<hr class="small">
-			</div>
-			<div class="col-md-12 calendar">
-				<h3>Wednesday</h3>
-				<hr class="small">
-			</div>
-			<div class="col-md-12 calendar">
-				<h3>Thursday</h3>
-				<hr class="small">
-			</div>
-			<div class="col-md-12 calendar">
-				<h3>Friday</h3>
-				<hr class="small">
-			</div>
-			<div class="col-md-12 calendar">
-				<h3>Saturday</h3>
-				<hr class="small">
-			</div>
-		</div>
-	</div> <!-- close row -->
+	  <br><br><br>
+		<div class="container" class="all-calendar">
+			<h1 class="text-center">Weekly Calendar</h1>
+			<div class="row calendar-row">
+				<div class="col-md-12 calendar">
+					<h3>Sunday</h3>
+					<hr class="small">
+				</div>
+				<div class="col-md-12 calendar">
+					<h3>Monday</h3>
+					<hr class="small">
+				</div>
+				<div class="col-md-12 calendar">
+					<h3>Tuesday</h3>
+					<hr class="small">
+				</div>
+				<div class="col-md-12 calendar">
+					<h3>Wednesday</h3>
+					<hr class="small">
+				</div>
+				<div class="col-md-12 calendar">
+					<h3>Thursday</h3>
+					<hr class="small">
+				</div>
+				<div class="col-md-12 calendar">
+					<h3>Friday</h3>
+					<hr class="small">
+				</div>
+				<div class="col-md-12 calendar">
+					<h3>Saturday</h3>
+					<hr class="small">
+				</div>
+			</div> <!-- close row -->
+		</div>  <!-- close container -->
 
 
-	<add-recipe></add-recipe>
+		<add-recipe></add-recipe>
 
-</div> <!-- close container -->
+	</div> <!-- close controller -->
+</div>

@@ -24,23 +24,63 @@ app.controller('myMealController', function($scope) {
     $scope.personalPage = isHidden;
   };
 
+  $scope.contactPage = false;
+  $scope.setContactPage = function(isHidden) {
+    $scope.contactPage = isHidden;
+  };
+
 });
 
+app.controller('RecipePuppy', ['$scope',
+  '$http',
+  function($scope, $http) {
 
-app.controller('RandomMeals', function($scope, $http, recipeFactory) {
+    $scope.getRecipePuppy = function() {
 
-  $scope.findRecipe = "";
+      var url = 'http://www.recipepuppy.com/api/?i=' + $scope.searchIngredient + '&q=' + $scope.searchQuery;
+      $http.get(url).then(function(data) {
+        $scope.recipeResults = data.data;
+        console.log($scope.recipeResults);
 
-	getResults = function(url) {
-		recipeFactory.get(url)
-		.then(function(response) {
-			$scope.results = response.data;
-			console.log($scope.results);
-		});
-	};
+      });
+    };
+  }
+]);
 
-	getResults('/api/recipes');
 
+app.controller('RandomMeals', function($scope, $http, recipeFactory, $timeout)  {
+
+ //  $scope.findRecipe = "";
+
+	// getResults = function(url) {
+	// 	recipeFactory.get(url)
+	// 	.then(function(response) {
+	// 		$scope.results = response.data;
+	// 		console.log($scope.results);
+ //      console.log('inside getResults');
+	// 	});
+	// };
+
+	// getResults('/api/recipes');
+
+  // $http.get('/api/recipes/done')
+  //   .success(function(data) {
+  //     $scope.recipes = data;
+  //     console.log($scope.recipes);
+  //   });
+  
+
+ //  $timeout(checkResult('/api/recipes/done'), 2000);
+
+ //  function checkResult(url) {
+ //    getResults(url);
+ //    if ($scope.results == null) {
+ //      $timeout(checkResult(url), 200000);
+ //    } else {
+ //      console.log('got final result');
+ //      console.log($scope.results);
+ //    }
+ //  }
   // $scope.postRecipe = function() {
   //   var payload = $scope.project;
   //   recipeFactory.post('/api/recipes', payload)
@@ -90,7 +130,6 @@ app.controller('loginController',
     console.log(AuthService.getUserStatus());
 
     $scope.login = function () {
-      console.log('test');
 
       // initial values
       $scope.error = false;
@@ -100,6 +139,7 @@ app.controller('loginController',
       AuthService.login($scope.loginForm.username, $scope.loginForm.password)
         // handle success
         .then(function () {
+          console.log('test');
           $location.path('/');
           $scope.disabled = false;
           $scope.loginForm = {};

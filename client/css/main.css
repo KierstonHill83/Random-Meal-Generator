@@ -84,10 +84,6 @@ a {
 	text-align: center;
 }
 
-.list-inline {
-	margin-left: 258px;
-}
-
 .calendar {
 	width: 200px;
 	height: 280px;
@@ -114,3 +110,54 @@ a {
 	min-width: 300px;
 	border: 1px solid;
 }
+
+#contact-page {
+	text-align: center;
+	background: url(/img/fruit.jpg) no-repeat center center;
+	background-size: cover;
+	height: 750px;
+	width: 100%;
+}
+
+#inner-contact {
+	position: absolute;
+	background-color: #FEE0C6;
+	opacity: 0.8;
+	width: 75%;
+	margin-top: 10px;
+	border-radius: 4%;
+	height: 730px;
+	margin-left: 165;
+}
+
+#contact-panel {
+	position: absolute;
+	width: 470px;
+	margin-left: 180px;
+	margin-top: 230px;
+	text-align: left;
+	border-radius: 3%;
+}
+
+.contact-message {
+	margin-left: 500px;
+}
+
+#personal-background {
+	text-align: center;
+	background: url(/img/basket.jpg) no-repeat center center;
+	background-size: cover;
+	height: 100%;
+	width: 100%;
+	opacity: 0.8;
+}
+
+.all-calendar {
+	background-color: white;
+}
+/*#outer-personal {
+	background-color: white;
+	height: 100%;
+	width: 100%;
+	opacity: 0.6;
+}*/

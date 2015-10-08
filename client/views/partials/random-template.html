@@ -4,11 +4,11 @@
     <form id="randomMealForm" class="form-inline" ng-model="randomMealForm" ng-show="randomMealForm">
       <div class="form-group">
         <label for="ingredients">Ingredients</label>
-        <input type="text" id="searchIngredient" class="form-control" placeholder="Ingredients">
+        <input type="text" ng-model="searchIngredient" name="searchIngredient" class="form-control" placeholder="Ingredients">
       </div>
       <div class="form-group">
         <label for="search">Type</label>
-        <input type="text" id="searchQuery" class="form-control" placeholder="Type">
+        <input type="text" ng-model="searchQuery" name="searchQuery" class="form-control" placeholder="Type">
       </div>
       <button type="submit" class="btn btn-info" ng-click="recipeInfo = true">Submit</button>
       <button type="button" class="btn btn-danger" ng-click="randomMealForm = false">Cancel</button>
