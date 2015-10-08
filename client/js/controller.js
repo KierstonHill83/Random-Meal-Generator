@@ -1,11 +1,33 @@
-app.controller('RandomMeals', function($scope, $http, recipeFactory) {
+app.controller('myMealController', function($scope) {
 
-	$scope.addForm = false;
-	$scope.loginTemplate = false;
-	$scope.registerTemplate = false;
-	$scope.randomMealForm = false;
-	$scope.recipeInfo = false;
-	$scope.personalPage = false;
+  $scope.addForm = false;
+  $scope.randomMealForm = false;
+  $scope.recipeInfo = false;
+
+  $scope.loginTemplate = false;
+  $scope.setLoginTemplate = function(isHidden) {
+    $scope.loginTemplate = isHidden;
+  };
+
+  $scope.homePage = false;
+  $scope.setHomePage = function(isHidden) {
+    $scope.homePage = isHidden;
+  };
+
+  $scope.registerTemplate = false;
+  $scope.setRegisterTemplate = function(isHidden) {
+    $scope.registerTemplate = isHidden;
+  };
+
+  $scope.personalPage = false;
+  $scope.setPersonalPage = function(isHidden) {
+    $scope.personalPage = isHidden;
+  };
+
+});
+
+
+app.controller('RandomMeals', function($scope, $http, recipeFactory) {
 
   $scope.findRecipe = "";
 
@@ -19,44 +41,44 @@ app.controller('RandomMeals', function($scope, $http, recipeFactory) {
 
 	getResults('/api/recipes');
 
-  $scope.postRecipe = function() {
-    var payload = $scope.project;
-    recipeFactory.post('/api/recipes', payload)
-    .then(function(response) {
-      console.log(response);
-      $scope.recipes.push(response.data);
-      $scope.project = {};
-    });
-  };
+  // $scope.postRecipe = function() {
+  //   var payload = $scope.project;
+  //   recipeFactory.post('/api/recipes', payload)
+  //   .then(function(response) {
+  //     console.log(response);
+  //     $scope.recipes.push(response.data);
+  //     $scope.project = {};
+  //   });
+  // };
 
-  $scope.editRecipe = function(id) {
-    $scope.findRecipe = '/api/recipe/' + id;
-    recipeFactory.get($scope.findRecipe)
-    .then(function(response) {
-      console.log(response);
-      getRecipes('/api/recipes');
-      $scpe.recipe = {};
-    });
-  };
+  // $scope.editRecipe = function(id) {
+  //   $scope.findRecipe = '/api/recipe/' + id;
+  //   recipeFactory.get($scope.findRecipe)
+  //   .then(function(response) {
+  //     console.log(response);
+  //     getRecipes('/api/recipes');
+  //     $scpe.recipe = {};
+  //   });
+  // };
 
-  $scope.updateRecipe = function() {
-    var update = $scope.recipe;
-    recipeFactory.put($scope.findRecipe, update)
-    .then(function(response) {
-      console.log(response);
-      getRecipes('/api/recipes');
-      $scope.recipe = {};
-    });
-  };
+  // $scope.updateRecipe = function() {
+  //   var update = $scope.recipe;
+  //   recipeFactory.put($scope.findRecipe, update)
+  //   .then(function(response) {
+  //     console.log(response);
+  //     getRecipes('/api/recipes');
+  //     $scope.recipe = {};
+  //   });
+  // };
 
-  $scope.remoteRecipe = function(id) {
-    $scope.findRecipe = '/api/recipe/' + id;
-    recipeFactory.delete($scope.findRecipe)
-    .then(function(response) {
-      console.log(response);
-      getRecipes('/api/recipes');
-    });
-  };
+  // $scope.remoteRecipe = function(id) {
+  //   $scope.findRecipe = '/api/recipe/' + id;
+  //   recipeFactory.delete($scope.findRecipe)
+  //   .then(function(response) {
+  //     console.log(response);
+  //     getRecipes('/api/recipes');
+  //   });
+  // };
 
 });
 
@@ -68,6 +90,7 @@ app.controller('loginController',
     console.log(AuthService.getUserStatus());
 
     $scope.login = function () {
+      console.log('test');
 
       // initial values
       $scope.error = false;
@@ -115,6 +138,13 @@ app.controller('registerController',
   ['$scope', '$location', 'AuthService',
   function ($scope, $location, AuthService) {
 
+    $scope.addForm = false;
+    $scope.loginTemplate = false;
+    $scope.registerTemplate = false;
+    $scope.randomMealForm = false;
+    $scope.recipeInfo = false;
+    $scope.personalPage = false;
+
     console.log(AuthService.getUserStatus());
 
     $scope.register = function () {
@@ -142,3 +172,5 @@ app.controller('registerController',
     };
 
 }]);
+
+

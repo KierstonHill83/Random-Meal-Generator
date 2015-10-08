@@ -2,7 +2,8 @@ app.directive('homePage', function() {
 	return {
 		restrict: 'E',
 		transclude: true,
-		templateUrl: '../views/partials/home-template.html'
+		templateUrl: '../views/partials/home-template.html',
+		scope: false
 	};
 });
 
@@ -10,7 +11,8 @@ app.directive('loginPage', function() {
 	return {
 		restrict: 'E',
 		transclude: true,
-		templateUrl: '../views/partials/login-template.html'
+		templateUrl: '../views/partials/login-template.html',
+		scope: false
 	};
 });
 
@@ -18,7 +20,8 @@ app.directive('registerPage', function() {
 	return {
 		restrict: 'E',
 		transclude: true,
-		templateUrl: '../views/partials/register-template.html'
+		templateUrl: '../views/partials/register-template.html',
+		scope: false
 	};
 });
 

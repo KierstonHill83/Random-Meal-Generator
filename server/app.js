@@ -54,8 +54,8 @@ app.use(passport.session());
 
 
 // *** main routes *** //
-app.use('/', routes);
 app.use('/api/', recipe);
+app.use('/', routes);
 app.use('/', function(req, res) {
   res.sendFile(path.join(__dirname, '../client/views', 'index.html'));
 });

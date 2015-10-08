@@ -36,12 +36,14 @@ function reciepePuppyService(ingredients, query) {
 		});
 		res.on('end', function() {
 			var output = JSON.parse(body);
-			console.log("got a response: ", output.results[2]);
+			console.log("got a response: ", output.results);
 		});
 	}).on('error', function(e) {
 		console.log('Got an error:', e);
 	});
 }
+
+// console.log(reciepePuppyService('chocolate', 'cake'));
 
 // Recipe data from food2fork
 // function foodForkService(query) {

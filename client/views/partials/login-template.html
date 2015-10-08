@@ -5,7 +5,7 @@
       <br>
       <div ng-show="error" class="alert alert-danger">{{errorMessage}}</div>
 
-      <form class="form-group" ng-submit="login()">
+      <form class="form-group" ng-submit="login(); loginTemplate = false; setPersonalPage(true)">
         <div class="form-group">
           <label>Username</label>
           <input type="text" class="form-control" name="username" ng-model="loginForm.username" required>
@@ -15,8 +15,8 @@
             <input type="password" class="form-control" name="password" ng-model="loginForm.password" required>
         </div>
         <div>
-          <button type="submit" class="btn btn-primary" ng-click="loginTemplate = false; personalPage = true">Login</button>
-          <button type="button" class="btn btn-danger" ng-click="loginTemplate = false; homePage = false">Cancel</button>
+          <button type="submit" class="btn btn-primary" ng-disabled="disabled">Login</button>
+          <button type="button" class="btn btn-danger" ng-click="loginTemplate = false; setHomePage(false)">Cancel</button>
         </div>
       </form>
     </div>

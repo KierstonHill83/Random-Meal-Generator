@@ -108,3 +108,9 @@ a {
 #randomMealForm {
 	margin-left: 20px;
 }
+
+#randomRecipeInfo {
+	min-height: 80px;
+	min-width: 300px;
+	border: 1px solid;
+}

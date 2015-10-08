@@ -23,8 +23,8 @@
 	          <!-- <button type="submit" class="btn btn-info">Submit</button> -->
 	        </form>
 	        <ul class="nav navbar-nav navbar-left">
-	          <li ng-click="loginTemplate = true; homePage = true"><a href="#">Login</a></li>
-	          <li ng-click="registerTemplate = true; homePage = true"><a href="#">Register</a></li>
+	          <li ng-click="setLoginTemplate(true); setHomePage(true)"><a href="#">Login</a></li>
+	          <li ng-click="setRegisterTemplate(true); setHomePage(true)"><a href="#">Register</a></li>
 	        </ul>
 	        <ul class="nav navbar-nav navbar-right">
 	        	<li><a href="#info-section">Get a Recipe Now</a></li>
@@ -50,8 +50,6 @@
 	      </div>
 	    </div> <!-- end container div -->
 	  </div> <!-- end header div -->
-	</div>
-
 
 	<div class="container" id="info-section">
 		<div class="row">
@@ -128,8 +126,9 @@
 		</div>
 	</footer>
 </div> <!-- close model -->
+</div>
 	
-
+<!-- put in a validator -->
 
 
 

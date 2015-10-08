@@ -16,11 +16,13 @@
   </div>
 </div>
 
-<div class="container" ng-model="recipeInfo" ng-show="recipeInfo">
+<br><br>
+<div class="container" ng-model="recipeInfo" ng-show="recipeInfo" id="randomRecipeInfo">
 	<div class="row">
 		<div class="new-recipe">
 			<h3>Recipe Name</h3>
 			<p></p>
+      <button type="button" class="btn btn-danger" ng-click="recipeInfo = false; randomMealForm = false">Cancel</button>
 		</div>
 	</div>
 </div>
