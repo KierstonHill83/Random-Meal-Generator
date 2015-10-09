@@ -57,4 +57,3 @@ app.directive('contactPage', function() {
 		scope: false
 	};
 });
-

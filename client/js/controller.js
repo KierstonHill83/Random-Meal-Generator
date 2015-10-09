@@ -29,21 +29,27 @@ app.controller('myMealController', function($scope) {
     $scope.contactPage = isHidden;
   };
 
+  $scope.ingredients = '';
+  $scope.query = '';
+
 });
+
+
 
 app.controller('RecipePuppy', ['$scope',
   '$http',
   function($scope, $http) {
-
-    $scope.getRecipePuppy = function() {
-
-      var url = 'http://www.recipepuppy.com/api/?i=' + $scope.searchIngredient + '&q=' + $scope.searchQuery;
-      $http.get(url).then(function(data) {
-        $scope.recipeResults = data.data;
+   
+    $scope.getRecipePuppy = function() { 
+      $http.get('/api/recipes/results/' + $scope.ingredients + '/' + $scope.query)
+      // $http.get('/api/recipes/results/' + 'cheese' + '/' + 'enchiladas')
+      .then(function(data) {
+        $scope.recipeResults = data;
         console.log($scope.recipeResults);
 
       });
     };
+     $scope.getRecipePuppy();
   }
 ]);
 
@@ -52,16 +58,16 @@ app.controller('RandomMeals', function($scope, $http, recipeFactory, $timeout)  
 
  //  $scope.findRecipe = "";
 
-	// getResults = function(url) {
-	// 	recipeFactory.get(url)
-	// 	.then(function(response) {
-	// 		$scope.results = response.data;
-	// 		console.log($scope.results);
+  // getResults = function(url) {
+  //  recipeFactory.get(url)
+  //  .then(function(response) {
+  //    $scope.results = response.data;
+  //    console.log($scope.results);
  //      console.log('inside getResults');
-	// 	});
-	// };
+  //  });
+  // };
 
-	// getResults('/api/recipes');
+  // getResults('/api/recipes');
 
   // $http.get('/api/recipes/done')
   //   .success(function(data) {
@@ -212,5 +218,3 @@ app.controller('registerController',
     };
 
 }]);
-
-

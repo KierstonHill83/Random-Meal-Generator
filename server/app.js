@@ -82,23 +82,15 @@ app.use(function(req, res, next) {
 // will print stacktrace
 if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
-      message: err.message,
-      error: err
-    });
+    res.status(err.status || 500).json({status: 'Error!'});
   });
 }
 
 // production error handler
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
-  res.status(err.status || 500);
-  res.render('error', {
-    message: err.message,
-    error: {}
-  });
+  res.status(err.status || 500).json({status: 'Error!'});
 });
 
-
+// now the user will see the error on their side. You cannot render an error on the client side. That is only on the server side.
 module.exports = app;

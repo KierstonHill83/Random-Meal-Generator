@@ -1,28 +1,30 @@
 <br><br><br>
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <form id="randomMealForm" class="form-inline" ng-model="randomMealForm" ng-show="randomMealForm">
-      <div class="form-group">
-        <label for="ingredients">Ingredients</label>
-        <input type="text" ng-model="searchIngredient" name="searchIngredient" class="form-control" placeholder="Ingredients">
-      </div>
-      <div class="form-group">
-        <label for="search">Type</label>
-        <input type="text" ng-model="searchQuery" name="searchQuery" class="form-control" placeholder="Type">
-      </div>
-      <button type="submit" class="btn btn-info" ng-click="recipeInfo = true">Submit</button>
-      <button type="button" class="btn btn-danger" ng-click="randomMealForm = false">Cancel</button>
-    </form>
+<div ng-controller="RecipePuppy">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <form id="randomMealForm" class="form-inline" ng-model="randomMealForm" ng-show="randomMealForm" ng-submit="submit(); recipeInfo = true">
+        <div class="form-group">
+          <label for="ingredients">Ingredients</label>
+          <input type="text" ng-model="ingredients" name="ingredients" class="form-control" placeholder="Ingredients">
+        </div>
+        <div class="form-group">
+          <label for="search">Type</label>
+          <input type="text" ng-model="query" name="query" class="form-control" placeholder="Type">
+        </div>
+        <button type="submit" class="btn btn-info" ng-click="getRecipePuppy()">Submit</button>
+        <button type="button" class="btn btn-danger" ng-click="randomMealForm = false">Cancel</button>
+      </form>
+    </div>
   </div>
-</div>
 
-<br><br>
-<div class="container" ng-model="recipeInfo" ng-show="recipeInfo" id="randomRecipeInfo">
-	<div class="row">
-		<div class="new-recipe">
-			<h3>Recipe Name</h3>
-			<p></p>
-      <button type="button" class="btn btn-danger" ng-click="recipeInfo = false; randomMealForm = false">Cancel</button>
-		</div>
-	</div>
+  <br><br>
+  <div class="container" ng-model="recipeInfo" ng-show="recipeInfo" id="randomRecipeInfo">
+  	<div class="row">
+  		<div class="new-recipe">
+  			<h3>Recipe Name</h3>
+  			<p>{{recipeResults.data.title}}</p>
+        <button type="button" class="btn btn-danger" ng-click="recipeInfo = false; randomMealForm = false">Cancel</button>
+  		</div>
+  	</div>
+  </div>
 </div>

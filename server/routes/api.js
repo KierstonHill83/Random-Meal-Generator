@@ -26,54 +26,33 @@ router.get('/recipe/:id', function(req, res, next) {
 	});
 });
 
-// var recipeData = null;
 
-// function recipePuppyService(ingredients, query) {
-// 	var url = 'http://www.recipepuppy.com/api/?i='+ingredients+'&q='+query;
-// 	http.get(url, function(res) {
-// 		var body = "";
-// 		res.on('data', function(chunk) {
-// 			body += chunk;
-// 		});
-// 		res.on('end', function() {
-// 			var output = JSON.parse(body);
-// 			console.log("got a response: ", output.results);
-// 			recipeData = output.results;
-// 		});
-// 	}).on('error', function(e) {
-// 		console.log('Got an error:', e);
-// 	});
-// }
-
-
-
-// Recipe data from recipepuppy
-// Router.get('/recipes/results/:ingredients/:query', function(req, res, next) {
-// 	var ingredients = req.params.searchIngredients;
-// 	var query = req.params.searchQuery;
-// 	recipePuppy.search({
-// 		ingredients: ingredients,
-// 		query: query
-// 	}, function(err, data) {
-// 		if(err) {
-// 			res.json({'ERROR': err});
-// 		} else {
-// 			console.log(data.results);
-// 			res.json(data.results);
-// 		}
-// 	});
-// });
+function recipePuppyService(ingredients, query, response) {
+	var url = 'http://www.recipepuppy.com/api/?i='+ingredients+'&q='+query;
+	http.get(url, function(res) {
+		var body = "";
+		res.on('data', function(chunk) {
+			body += chunk;
+		});
+		res.on('end', function() {
+			var output = JSON.parse(body);
+			console.log("got a response: ", output.results);
+			recipeData = output.results;
+			response.json(recipeData);
+		});
+	}).on('error', function(e) {
+		console.log('Got an error:', e);
+	});
+}
 
 
-// router.get('/recipes/done', function(req, res, next) {
-// 	res.json(recipeData);
-// 	console.log(recipeData);
-// 	if (recipeData != null) {
-//     recipeData = null;
-// 	}
-// });
-
-// console.log(recipePuppyService('chocolate', 'cake'));
+//Recipe data from recipepuppy
+router.get('/recipes/results/:ingredients/:query', function(req, res, next) {
+	var ingredients = req.params.ingredients;
+	var query = req.params.query;
+	console.log(ingredients);
+	recipePuppyService(ingredients, query, res);
+});
 
 // Recipe data from food2fork
 // function foodForkService(query) {
