@@ -1,28 +1,3 @@
-app.factory('recipeFactory', ['$http', function($http) {
-
-  var obj = {};
-
-  obj.get = function(url) {
-    return $http.get(url);
-  };
-
-  obj.post = function(url, payload) {
-    return $http.post(url, payload);
-  };
-
-  obj.put = function(url, payload) {
-    return $http.put(url, payload);
-  };
-
-  obj.delete = function(url) {
-    return $http.delete(url);
-  };
-
-  return obj;
-
-}]);
-
-
 app.factory('AuthService', ['$q', '$timeout', '$http', function ($q, $timeout, $http) {
 
     // create user variable
@@ -30,23 +5,19 @@ app.factory('AuthService', ['$q', '$timeout', '$http', function ($q, $timeout, $
 
     // return available functions for use in controllers
     return ({
-      isLoggedIn: isLoggedIn,
       getUserStatus: getUserStatus,
       login: login,
       logout: logout,
       register: register
     });
+    //here is where I can send back to the user any information that I want
 
-    function isLoggedIn() {
+    function getUserStatus() {
         if(user) {
           return true;
         } else {
           return false;
         }
-    }
-
-    function getUserStatus() {
-      return user;
     }
 
     function login(username, password) {
@@ -55,12 +26,12 @@ app.factory('AuthService', ['$q', '$timeout', '$http', function ($q, $timeout, $
       var deferred = $q.defer();
 
       // send a post request to the server
-      $http.post('/user/login', {username: username, password: password})
+      $http.post('/auth/login', {username: username, password: password})
         // handle success
         .success(function (data, status) {
           if(status === 200 && data.status){
             user = true;
-            deferred.resolve();
+            deferred.resolve(data);
           } else {
             user = false;
             deferred.reject();
@@ -83,7 +54,7 @@ app.factory('AuthService', ['$q', '$timeout', '$http', function ($q, $timeout, $
       var deferred = $q.defer();
 
       // send a get request to the server
-      $http.get('/user/logout')
+      $http.get('/auth/logout')
         // handle success
         .success(function (data) {
           user = false;
@@ -106,11 +77,11 @@ app.factory('AuthService', ['$q', '$timeout', '$http', function ($q, $timeout, $
       var deferred = $q.defer();
 
       // send a post request to the server
-      $http.post('/user/register', {username: username, password: password})
+      $http.post('/auth/register', {username: username, password: password})
         // handle success
         .success(function (data, status) {
           if(status === 200 && data.status){
-            deferred.resolve();
+            deferred.resolve(data);
           } else {
             deferred.reject();
           }

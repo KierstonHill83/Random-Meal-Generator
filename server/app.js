@@ -16,8 +16,8 @@ var LocalStrategy = require('passport-local').Strategy;
 
 
 // *** routes *** //
-var routes = require('./routes/index.js');
 var recipe = require('./routes/api.js');
+var user = require('./routes/userAPI.js');
 
 
 // *** express instance *** //
@@ -55,7 +55,7 @@ app.use(passport.session());
 
 // *** main routes *** //
 app.use('/api/', recipe);
-app.use('/', routes);
+app.use('/auth', user);
 app.use('/', function(req, res) {
   res.sendFile(path.join(__dirname, '../client/views', 'index.html'));
 });
@@ -63,9 +63,9 @@ app.use('/', function(req, res) {
 
 // *** passport config *** //
 var User = require('./models/user');
-passport.use(new LocalStrategy(User.authenticate()));
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+// passport.use(new LocalStrategy(User.authenticate()));
+// passport.serializeUser(User.serializeUser());
+// passport.deserializeUser(User.deserializeUser());
 
 
 // catch 404 and forward to error handler
