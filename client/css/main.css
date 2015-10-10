@@ -181,12 +181,21 @@ a {
 
 #register-background {
 	text-align: center;
-	background: url(/img/brownFaded.jpg) no-repeat center center;
+	background: url(/img/redAndYellow.png) no-repeat center center;
   background-size: cover;
 	min-height: 780px;
 	min-width: 100%;
 }
 
+#myCarousel {
+	background-color: white;
+	height: 450px;
+	width: 75%;
+}
+
+#lower-heading {
+	color: white;
+}
 /*#outer-personal {
 	background-color: white;
 	height: 100%;

@@ -24,8 +24,8 @@
 		          <!-- <button type="submit" class="btn btn-info">Submit</button> -->
 		        </form>
 		        <ul class="nav navbar-nav navbar-left">
-		          <li ng-click="setLoginTemplate(true); setHomePage(true)"><a href="#">Login</a></li>
-		          <li ng-click="setRegisterTemplate(true); setHomePage(true)"><a href="#">Register</a></li>
+		          <li ng-click="setLoginTemplate(true); setHomePage(true)"><a href="#/login">Login</a></li>
+		          <li ng-click="setRegisterTemplate(true); setHomePage(true)"><a href="#/register">Sign Up</a></li>
 		        </ul>
 		        <ul class="nav navbar-nav navbar-right">
 		        	<li><a href="#info-section">Get a Recipe Now</a></li>
@@ -45,6 +45,7 @@
 		          <div class="intro-message">
 		            <h1 id="heading">Random Meal Generator</h1>
 		            <hr class="intro-divider">
+		            <h2 id="lower-heading">Join for Free</h2>
 		          </div>
 		        </div>
 		      </div>
@@ -55,20 +56,21 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="col-md-4">
-						<h2 class="info">Some text</h2>
+						<h2 class="info">Allergies</h2>
 						<hr class="small">
-						<p>Maybe there will be text about the filters</p>
+						<p>Text about allergies or intolerances or dislikes</p>
 					</div>
 					<div class="col-md-4">
 						<h2 class="info">Get a Random Recipe</h2>
 						<hr class="small">
+						<p>Click the button below to have a random recipe displayed for you. Input the category and the ingredients you would like.</p>
 						<button type="button" class="btn btn-lg btn-info" ng-click="randomMealForm = true">Click for a Random Recipe</button>
 						
 					</div>
 					<div class="col-md-4">
-						<h2 class="info">Some text</h2>
+						<h2 class="info">Benefits</h2>
 						<hr class="small">
-						<p>There will be text about what you can do when you login</p>
+						<p>When you sign up you can plan a weeks worth of random meals with a shopping list.</p>
 					</div>
 				</div>
 			</div>
@@ -79,7 +81,7 @@
 
 		<div class="row" id="img-row">
 			<div class="col-lg-10 col-lg-offset-1 text-center">
-				<h2 id="img-header">Some Examples</h2>
+				<h2 id="img-header">Popular Dishes</h2>
 				<hr class="small">
 				<div class="row">
 					<div class="col-md-6">

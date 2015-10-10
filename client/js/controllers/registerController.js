@@ -21,7 +21,7 @@ app.controller('registerController',
       AuthService.register($scope.registerForm.username, $scope.registerForm.password)
         // handle success
         .then(function () {
-          $location.path('/');
+          $location.path('/personal');
           $scope.disabled = false;
           $scope.registerForm = {};
         })
