@@ -21,9 +21,10 @@
   <div class="container" ng-model="recipeInfo" ng-show="recipeInfo" id="randomRecipeInfo">
   	<div class="row">
   		<div class="new-recipe">
-  			<h3>Recipe Name</h3>
-  			<p>{{recipeTitle}</p>
-        <p>{{recipeIngredients}</p>
+  			<h3>{{recipeResults.title}}</h3>
+        <img ng-src="{{recipeResults.thumbnail}}">
+  			<p>{{recipeResults.ingredients}}</p>
+        <a>{{recipeResults.href}}</a>
         <button type="button" class="btn btn-danger" ng-click="recipeInfo = false; randomMealForm = false">Cancel</button>
   		</div>
   	</div>

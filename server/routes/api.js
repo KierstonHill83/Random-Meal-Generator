@@ -32,16 +32,24 @@ function recipePuppyService(ingredients, query, pages, response) {
 		var body = "";
 		res.on('data', function(chunk) {
 			body += chunk;
+			console.log("chunk = " + chunk);
 		});
 		res.on('end', function() {
-			var output = JSON.parse(body);
-			console.log("got a response: ", output.results);
-			if (output.results.length === 0) {
+			console.log("before output");
+			// if (response.json(output.results).length === 0) {
+			// 	if (pages > 1) {
+ 		// 	  	recipePuppyService(ingredients, query, Math.floor((Math.random() * (pages -1) + 1))	, response);
+ 		// 	  }
+			// }
+			try {
+			  var output = JSON.parse(body);
+			  console.log("got a response: ", output.results);
+				response.json(output.results);
+			}
+			catch(e) {
 				if (pages > 1) {
  			  	recipePuppyService(ingredients, query, Math.floor((Math.random() * (pages -1) + 1))	, response);
  			  }
-			} else {
-				response.json(output.results);
 			}
 		});
 	}).on('error', function(e) {
