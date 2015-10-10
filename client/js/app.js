@@ -39,9 +39,7 @@ app.config(function($routeProvider) {
 		})
 		.when('/about', {
 			templateUrl: '/views/partials/contact-template.html',
-			access: {
-				restricted: false
-			}
+			access: {restricted: false}
 		})
 		.when('/personal', {
 			templateUrl: '../views/partials/personal-template.html',

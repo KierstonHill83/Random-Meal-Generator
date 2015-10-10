@@ -80,10 +80,6 @@ a {
 	margin-top: 60px;
 }
 
-.new-recipe {
-	text-align: center;
-}
-
 .calendar {
 	width: 200px;
 	height: 260px;
@@ -107,10 +103,20 @@ a {
 	margin-left: 20px;
 }
 
-#randomRecipeInfo {
-	min-height: 80px;
-	min-width: 210px;
-	border: 1px solid;
+#recipe-results {
+	border-top: 1px solid;
+	border-bottom: 1px solid;
+	text-align: center;
+}
+
+.recipe-title {
+	font-size: 30px;
+}
+
+#recipe-img {
+	background-size: cover;
+	height: 100%;
+	width: 100%; 
 }
 
 #contact-page {
@@ -161,40 +167,38 @@ a {
   color: white;
 }
 
-#login-background {
-	text-align: center;
-	background: url(/img/brownFaded.jpg) no-repeat center center;
-  background-size: cover;
-	min-height: 780px;
-	min-width: 100%;
-}
-
-.login-header {
-	font-size: 5em;
-}
-
-.login-input {
-	height: 45px;
-	width: 600px;
-	margin: auto;
-}
-
 #register-background {
 	text-align: center;
 	background: url(/img/redAndYellow.png) no-repeat center center;
   background-size: cover;
 	min-height: 780px;
 	min-width: 100%;
+	opacity: 0.9;
 }
 
-#myCarousel {
+.register-header {
+	font-size: 5em;
+}
+
+.register-input {
+	height: 45px;
+	width: 600px;
+	margin: auto;
+}
+
+#my-carousel {
 	background-color: white;
-	height: 450px;
+	height: 480px;
 	width: 75%;
+	margin-left: 148px;
 }
 
 #lower-heading {
 	color: white;
+}
+
+.home-text {
+	font-size: 16px;
 }
 /*#outer-personal {
 	background-color: white;
