@@ -26,8 +26,8 @@ router.get('/recipe/:id', function(req, res, next) {
 });
 
 
-function recipePuppyService(ingredients, query, response) {
-	var url = 'http://www.recipepuppy.com/api/?i='+ingredients+'&q='+query;
+function recipePuppyService(ingredients, query, pages, response) {
+	var url = 'http://www.recipepuppy.com/api/?i='+ingredients+'&q='+query+'&p='+pages;
 	http.get(url, function(res) {
 		var body = "";
 		res.on('data', function(chunk) {
@@ -36,8 +36,13 @@ function recipePuppyService(ingredients, query, response) {
 		res.on('end', function() {
 			var output = JSON.parse(body);
 			console.log("got a response: ", output.results);
-			recipeData = output.results;
-			response.json(recipeData);
+			if (output.results.length === 0) {
+				if (pages > 1) {
+ 			  	recipePuppyService(ingredients, query, Math.floor((Math.random() * (pages -1) + 1))	, response);
+ 			  }
+			} else {
+				response.json(output.results);
+			}
 		});
 	}).on('error', function(e) {
 		console.log('Got an error:', e);
@@ -46,11 +51,13 @@ function recipePuppyService(ingredients, query, response) {
 
 
 //Recipe data from recipepuppy
-router.get('/recipes/results/:ingredients/:query', function(req, res, next) {
+router.get('/recipes/results/:ingredients/:query/:pages', function(req, res, next) {
 	var ingredients = req.params.ingredients;
 	var query = req.params.query;
+	var pages = Math.floor(Math.random() * 10 + 1);
+	console.log("pages = " + pages);
 	console.log(ingredients);
-	recipePuppyService(ingredients, query, res);
+	recipePuppyService(ingredients, query, pages, res);
 });
 
 // Recipe data from food2fork

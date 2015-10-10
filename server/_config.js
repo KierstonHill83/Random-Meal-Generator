@@ -7,4 +7,6 @@ config.mongoURI = {
 	stage: process.env.MONGOLAB_URI
 };
 
+var ids = {};
+
 module.exports = config;

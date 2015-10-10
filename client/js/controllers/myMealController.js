@@ -24,10 +24,10 @@ app.controller('myMealController', function($scope) {
     $scope.personalPage = isHidden;
   };
 
-  $scope.contactPage = false;
-  $scope.setContactPage = function(isHidden) {
-    $scope.contactPage = isHidden;
-  };
+  // $scope.contactPage = false;
+  // $scope.setContactPage = function(isHidden) {
+  //   $scope.contactPage = isHidden;
+  // };
 
   $scope.ingredients = '';
   $scope.query = '';

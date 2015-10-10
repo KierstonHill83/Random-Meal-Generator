@@ -15,7 +15,7 @@ app.controller('loginController',
         // handle success
         .then(function () {
           console.log('test');
-          $location.path('/');
+          $location.path('/home');
           $scope.disabled = false;
           $scope.loginForm = {};
         })

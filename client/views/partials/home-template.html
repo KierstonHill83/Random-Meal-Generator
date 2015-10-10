@@ -1,5 +1,5 @@
 <!-- <div ng-controller="RandomMeals"> -->
-	<div ng-model="homePage" ng-hide="homePage">
+	<div  ng-controller="RandomMeals" ng-model="homePage" ng-hide="homePage">
 		<div class="container">
 
 		  <nav class="navbar navbar-default navbar-fixed-top">
@@ -29,8 +29,8 @@
 		        </ul>
 		        <ul class="nav navbar-nav navbar-right">
 		        	<li><a href="#info-section">Get a Recipe Now</a></li>
-		          <li ng-click="setContactPage(true); setHomePage(true)"><a href="#">Contact</a></li>
-		          <li ng-click="setContactPage(true); setHomePage(true)"><a href="#">About</a></li>
+		          <li ng-click="setContactPage(true); setHomePage(true)"><a href="#/contact">Contact</a></li>
+		          <li ng-click="setContactPage(true); setHomePage(true)"><a href="#/about">About</a></li>
 		        </ul>
 		      </div> <!-- .navbar-collapse -->
 		    </div>
