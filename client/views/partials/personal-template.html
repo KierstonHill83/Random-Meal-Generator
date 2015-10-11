@@ -45,8 +45,19 @@
 				<div class="col-md-12 calendar">
 					<h3>Sunday</h3>
 					<hr class="small">
-					<button type="button" class="btn btn-info">Get Recipe</button>
+					<button type="button" class="btn btn-info" ng-click="mealForm = true">Get Recipe</button>
 					<button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+					<!-- <div class="container" ng-model="recipeInfo2" ng-show="recipeInfo2">
+				  	<div class="row">
+				  		<div class="col-md-6 col-md-offset-3 meal-form">
+				  			<h3 class="recipe-title">{{recipeResults.title}}</h3>
+				        <a id="recipe-img" ng-href="{{recipeResults.href}}"><img ng-src="{{recipeResults.thumbnail}}" alt="{{recipeResults.href}}"></a>
+				        <h3>Shopping List</h3>
+				  			<p class="home-text">{{recipeResults.ingredients}}</p>
+				        <button type="button" class="btn btn-danger" ng-click="recipeInfo2 = false; mealForm = false">Cancel</button>
+				  		</div>
+				  	</div>
+				  </div> -->
 				</div>
 				<div class="col-md-12 calendar">
 					<h3>Monday</h3>
@@ -75,6 +86,41 @@
 			</div> <!-- close row -->
 		</div>  <!-- close container --> 
 
+		<div ng-controller="RecipePuppy">
+
+			<div class="container">
+				<div class="row">
+			    <div class="col-md-6 col-md-offset-3 meal-form">
+			      <form class="form-inline" ng-model="mealForm" ng-show="mealForm" ng-submit="submit(); recipeInfo2 = true">
+			        <div class="form-group">
+			          <label for="search">Category</label>
+			          <input type="text" ng-model="query" name="query" class="form-control" placeholder="Type">
+			        </div>
+			        <div class="form-group">
+			          <label for="ingredients">Ingredients</label>
+			          <input type="text" ng-model="ingredients" name="ingredients" class="form-control" placeholder="Ingredients">
+			        </div>
+			        <button type="submit" class="btn btn-info" ng-click="getRecipePuppy(); recipeInfo2 = true">Submit</button>
+			        <button type="button" class="btn btn-danger" ng-click="mealForm = false">Cancel</button>
+			      </form>
+			    </div>
+			  </div>
+		
+
+				<div class="container" ng-model="recipeInfo2" ng-show="recipeInfo2">
+			  	<div class="row">
+			  		<div class="col-md-6 col-md-offset-3 meal-form">
+			  			<h3 class="recipe-title">{{recipeResults.title}}</h3>
+			        <a id="recipe-img" ng-href="{{recipeResults.href}}"><img ng-src="{{recipeResults.thumbnail}}" alt="{{recipeResults.href}}"></a>
+			        <h3>Shopping List</h3>
+			  			<p class="home-text">{{recipeResults.ingredients}}</p>
+			        <button type="button" class="btn btn-danger" ng-click="recipeInfo2 = false; mealForm = false">Cancel</button>
+			  		</div>
+			  	</div>
+			  </div>
+			</div>
+
+		</div>
 
 		<!-- <div ng-controller="CarouselDemoCtrl">
       <carousel>

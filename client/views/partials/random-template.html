@@ -24,7 +24,9 @@
   			<h3 class="recipe-title">{{recipeResults.title}}</h3>
         <a id="recipe-img" ng-href="{{recipeResults.href}}"><img ng-src="{{recipeResults.thumbnail}}" alt="{{recipeResults.href}}"></a>
         <h3>Shopping List</h3>
-  			<p class="home-text">{{recipeResults.ingredients}}</p>
+  			<ul class="home-text">
+          <li>{{recipeResults.ingredients}}</li>
+        </ul>
         <button type="button" class="btn btn-danger" ng-click="recipeInfo = false; randomMealForm = false">Cancel</button>
   		</div>
   	</div>

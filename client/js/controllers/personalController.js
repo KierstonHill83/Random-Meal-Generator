@@ -1,5 +1,5 @@
-app.controller('personalController', ['$scope', '$resource', 'cityService', '$routeParams', '$location', 'AuthService', 
-  function($scope, $resource, cityService, $routeParams, $location, AuthService){
+app.controller('personalController', ['$scope', 'cityService', '$routeParams', '$location', 'AuthService', 
+  function($scope, cityService, $routeParams, $location, AuthService){
 
   $scope.logout = function () {
 
