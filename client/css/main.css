@@ -135,7 +135,7 @@ a {
 	margin-top: 10px;
 	border-radius: 4%;
 	height: 730px;
-	margin-left: 165;
+	margin-left: 165px;
 }
 
 #contact-panel {
@@ -154,11 +154,11 @@ a {
 
 #personal-background {
 	text-align: center;
-	background: url(/img/basket.jpg) no-repeat center center;
+	background: url(/img/pallet.jpg) no-repeat center center;
 	background-size: cover;
 	height: 800px;
 	width: 100%;
-	opacity: 0.8;
+	opacity: 0.9;
 }
 
 .calendar-header {
@@ -169,7 +169,7 @@ a {
 
 #register-background {
 	text-align: center;
-	background: url(/img/redAndYellow.png) no-repeat center center;
+	background: url(/img/greyBlur.jpg) no-repeat center center;
   background-size: cover;
 	min-height: 780px;
 	min-width: 100%;
@@ -181,9 +181,14 @@ a {
 }
 
 .register-input {
-	height: 45px;
-	width: 600px;
+	height: 35px;
+	width: 400px;
 	margin: auto;
+}
+
+.register-label {
+	font-size: 16px;
+	font-weight: bold;
 }
 
 #my-carousel {

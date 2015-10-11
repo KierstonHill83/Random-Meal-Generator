@@ -1,19 +1,67 @@
 <div ng-controller="registerController" class="container" ng-model="registerTemplate"  id="register-background">
-  <br>
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#/home">Meal Generator</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li ng-click="setContactPage(true); setHomePage(true)"><a href="#/contact">Contact</a></li>
+          <li ng-click="setContactPage(true); setHomePage(true)"><a href="#/about">About</a></li>
+        </ul>
+      </div> <!-- .navbar-collapse -->
+    </div>
+  </nav>
+
+  <br><br><br>
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
-      <h1 class="register-header">Register</h1>
+      <h1 class="register-header">Sign Up</h1>
       <br>
       <div ng-show="error" class="alert alert-danger">{{errorMessage}}</div>
 
-      <form class="form-group" ng-submit="register()">
+      <form class="form-horizontal" ng-submit="register()">
         <div class="form-group">
-          <input type="text" class="form-control register-input" name="username" ng-model="registerForm.username" placeholder="Username" required>
+          <label for="username" class="col-sm-3 control-label register-label">Username</label>
+          <div class="col-sm-7">
+            <input type="text" class="form-control register-input" name="username" ng-model="registerForm.username" placeholder="Username" required>
+          </div>
         </div>
         <div class="form-group">
-            <input type="password" class="form-control register-input" name="password" ng-model="registerForm.password" placeholder="Password" required>
+          <label for="email" class="col-sm-3 control-label register-label">Email</label>
+            <div class="col-sm-7">
+              <input type="email" class="form-control register-input" name="email" ng-model="registerForm.email" placeholder="Email" required>
+            </div>
         </div>
-        <div>
+        <div class="form-group">
+          <label for="city" class="col-sm-3 control-label register-label">City</label>
+            <div class="col-sm-7">
+              <input type="text" class="form-control register-input" name="city" ng-model="registerForm.city" placeholder="City, ST" required>
+            </div>
+        </div>
+        <div class="form-group">
+          <label for="password" class="col-sm-3 control-label register-label">Password</label>
+            <div class="col-sm-7">
+              <input type="password" class="form-control register-input" name="password" ng-model="registerForm.password" placeholder="Password" required>
+            </div>
+        </div>
+        <div class="form-group">
+          <label for="password2" class="col-sm-3 control-label register-label">Confirm Password</label>
+            <div class="col-sm-7">
+              <input type="password" class="form-control register-input" name="password2" ng-model="registerForm.password2" placeholder="Confirm Password" required>
+            </div>
+        </div>
+        <div class="col-sm-6 col-sm-offset-3">
           <button type="submit" class="btn btn-primary btn-lg" ng-disabled="disabled">Login</button>
           <button type="button" class="btn btn-danger btn-lg" ng-click="registerTemplate = false; setHomePage(false)">Cancel</button>
         </div>
