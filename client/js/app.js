@@ -1,4 +1,4 @@
-var app = angular.module('mealGenerator', ['ngRoute', 'ngResource']);
+var app = angular.module('mealGenerator', ['ngRoute']);
 
 app.config(function($routeProvider) {
   $routeProvider
@@ -10,7 +10,7 @@ app.config(function($routeProvider) {
     })
     .when('/home', {
       templateUrl: '/views/partials/home-template.html',
-      controller: 'RandomMeals',
+      controller: 'RecipePuppy',
       access: {restricted: false}
     })
     // .when('/random', {

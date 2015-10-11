@@ -1,8 +1,6 @@
 	<div ng-model="homePage" ng-hide="homePage">
 		<div class="container">
 
-		<div>
-
 		  <nav class="navbar navbar-default navbar-fixed-top">
 		    <div class="container">
 
@@ -28,13 +26,12 @@
 		          <button type="submit" class="btn btn-info" ng-disabled="disabled">Login</button>
 		        </form>
 		        <ul class="nav navbar-nav navbar-left">
-		          <!-- <li ng-click="setLoginTemplate(true); setHomePage(true)"><a href="#/login">Login</a></li> -->
-		          <li ng-click="setRegisterTemplate(true); setHomePage(true)"><a href="#/register">Sign Up</a></li>
+		          <li><a href="#/register">Sign Up</a></li>
 		        </ul>
 		        <ul class="nav navbar-nav navbar-right">
 		        	<li><a href="#info-section">Get a Recipe Now</a></li>
-		          <li ng-click="setContactPage(true); setHomePage(true)"><a href="#/contact">Contact</a></li>
-		          <li ng-click="setContactPage(true); setHomePage(true)"><a href="#/about">About</a></li>
+		          <li><a href="#/contact">Contact</a></li>
+		          <li><a href="#/about">About</a></li>
 		        </ul>
 		      </div> <!-- .navbar-collapse -->
 		    </div>
@@ -42,8 +39,6 @@
 
 		  <br><br><br><br>
         <div ng-show="error" class="alert alert-danger">{{errorMessage}}</div>
-
-		</div> <!-- close loginController -->
 
 		</div> <!-- close container
 
