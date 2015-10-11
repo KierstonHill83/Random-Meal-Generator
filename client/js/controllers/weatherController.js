@@ -1,35 +1,25 @@
-//Controllers
-// app.controller('homeController', ['$scope', '$location', 'cityService', function($scope, $location, cityService){
+app.controller('homeController', ['$scope', '$location', 'cityService', function($scope, $location, cityService){
 
-//  $scope.city = cityService.city;
-
-//  $scope.$watch('city', function(){
-//    cityService.city = $scope.city;
-//  });
-
-//  $scope.submit = function() {
-//  	$location.path ('/forecast');
-//  };
-
-// }]);
-
-
-app.controller('forecastController', ['$scope', '$location', '$resource', 'cityService', '$routeParams', function($scope, $location, $resource, cityService, $routeParams){
  $scope.city = cityService.city;
- $scope.days = $routeParams.days || '7';
-
 
  $scope.$watch('city', function(){
    cityService.city = $scope.city;
  });
 
  $scope.submit = function() {
- 	$location.path('/forecast');
+ 	$location.path ('/personal');
  };
+
+}]);
+
+
+app.controller('forecastController', ['$scope', '$resource', 'cityService', '$routeParams', function($scope, $resource, cityService, $routeParams){
+ $scope.city = cityService.city;
+ $scope.days = $routeParams.days || '7';
 
  $scope.weatherAPI = $resource('http://api.openweathermap.org/data/2.5/forecast/daily', {callback: 'JSON_CALLBACK'}, {get: {method: 'JSONP'}});
 
- $scope.weatherResult = $scope.weatherAPI.get({ q: $scope.city });
+ $scope.weatherResult = $scope.weatherAPI.get({ q: $scope.city, cnt: $scope.days });
 
 	$scope.convertToFahrenheit = function(degk) {
 		return Math.round((1.8 * (degk - 273)) + 32);
@@ -40,23 +30,3 @@ app.controller('forecastController', ['$scope', '$location', '$resource', 'cityS
 	};
 
 }]);
-
-app.controller('CarouselDemoCtrl', ['$scope', 'ui.bootstrap'], function($scope) {
-  $scope.slides = [
-    {
-      image: 'http://lorempixel.com/400/200/'
-    },
-    {
-      image: 'http://lorempixel.com/400/200/food'
-    },
-    {
-      image: 'http://lorempixel.com/400/200/sports'
-    },
-    {
-      image: 'http://lorempixel.com/400/200/people'
-    }
-  ];
-});
-
-
-

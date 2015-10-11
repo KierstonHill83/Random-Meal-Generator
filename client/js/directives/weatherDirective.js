@@ -1,7 +1,7 @@
 app.directive('weatherReport', function() {
 	return {
 		restrict: 'E',
-		templateUrl: 'directives/weatherReport.html',
+		templateUrl: '../views/partials/weatherReport-template.html',
 		replace: true,
 		scope: {
 			weatherDay: '=',

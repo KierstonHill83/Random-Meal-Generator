@@ -19,8 +19,8 @@ app.config(function($routeProvider) {
 		// 	access: {restricted: false}
 		// })
 		.when('/login', {
-			templateUrl: '/views/partials/login-template.html',
 			controller: 'loginController',
+			redirectTo: '/home',
 			access: {restricted: false}
 		})
 		.when('/logout', {
@@ -43,15 +43,13 @@ app.config(function($routeProvider) {
 		})
 		.when('/personal', {
 			templateUrl: '../views/partials/personal-template.html',
+			controller:'forecastController',
 			access: {restricted: true}
 		})
-		.when('/forecast', {
-	   templateUrl: '../views/partials/personal.html',
-	   controller: 'forecastController'
-		})
-		.when('/forecast/:days', {
+		.when('/personal/:days', {
 		 templateUrl: '../views/partials/personal.html',
-		 controller: 'forecastController'
+		 controller: 'forecastController',
+		 access: {restricted: true}
 		})
 		.otherwise({
 			redirectTo: '/'
