@@ -4,11 +4,12 @@ app.controller('logoutController',
 
     $scope.logout = function () {
 
-      console.log(AuthService.getUserStatus());
-
       // call logout from service
       AuthService.logout()
         .then(function () {
+          $location.path('/');
+        })
+        .catch(function(){
           $location.path('/');
         });
 

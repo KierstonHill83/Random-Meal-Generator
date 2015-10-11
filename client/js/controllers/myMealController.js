@@ -19,10 +19,10 @@ app.controller('myMealController', function($scope) {
   //   $scope.registerTemplate = isHidden;
   // };
 
-  $scope.personalPage = false;
-  $scope.setPersonalPage = function(isHidden) {
-    $scope.personalPage = isHidden;
-  };
+  // $scope.personalPage = false;
+  // $scope.setPersonalPage = function(isHidden) {
+  //   $scope.personalPage = isHidden;
+  // };
 
   // $scope.contactPage = false;
   // $scope.setContactPage = function(isHidden) {
