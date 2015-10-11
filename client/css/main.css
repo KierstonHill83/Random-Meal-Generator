@@ -134,22 +134,26 @@ a {
 	width: 75%;
 	margin-top: 10px;
 	border-radius: 4%;
-	height: 730px;
+	height: 720px;
 	margin-left: 165px;
 }
 
 #contact-panel {
 	position: absolute;
 	width: 470px;
-	margin-left: 190px;
-	margin-top: 230px;
+	margin-left: 201px;
+	margin-top: 115px;
 	text-align: left;
 	border-radius: 3%;
 	opacity: 0.9;
 }
 
-.contact-message {
-	margin-left: 500px;
+.contact-header {
+	font-weight: bold;
+}
+
+#contact-social {
+	margin-top: 630px;
 }
 
 #personal-background {
@@ -204,6 +208,21 @@ a {
 
 .home-text {
 	font-size: 16px;
+}
+
+#slides_control > div{
+  height: 200px;
+}
+/*img{
+  margin:auto;
+  width: 400px;
+}*/
+#slides_control {
+  position:absolute;
+  width: 400px;
+  left:50%;
+  top:20px;
+ margin-left:-200px;
 }
 /*#outer-personal {
 	background-color: white;

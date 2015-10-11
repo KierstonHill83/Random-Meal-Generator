@@ -40,7 +40,7 @@
 	  </nav>
 
 	  <br><br><br>
-		<div class="container">
+		<!-- <div class="container">
 			<h1 class="text-center calendar-header">Weekly Calendar</h1>
 			<br>
 			<div class="row calendar-row">
@@ -74,8 +74,24 @@
 					<h3>Saturday</h3>
 					<hr class="small">
 				</div>
-			</div> <!-- close row -->
-		</div>  <!-- close container  -->
+			</div> --> <!-- close row -->
+		<!-- </div>  close container  -->
+
+<add-recipe></add-recipe>
+
+	</div> <!-- close controller -->
+</div>
+
+		<div ng-controller="CarouselDemoCtrl">
+      <carousel>
+        <slide ng-repeat="slide in slides" active="slide.active">
+          <img ng-src="{{slide.image}}">
+          <div class="carousel-caption">
+            <h4>Slide {{$index+1}}</h4>
+          </div>
+        </slide>
+      </carousel>
+    </div>
 
 
 <br>
@@ -122,7 +138,4 @@
 
 
 
-		<add-recipe></add-recipe>
-
-	</div> <!-- close controller -->
-</div>
+		
