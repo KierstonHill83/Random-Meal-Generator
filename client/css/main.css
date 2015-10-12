@@ -194,7 +194,8 @@ a {
   text-align: center;
   background: url(/img/pallet.jpg) no-repeat center center;
   background-size: cover;
-  height: 800px;
+  min-height: 800px;
+  height: 100%;
   width: 100%;
   opacity: 0.9;
 }
@@ -229,12 +230,12 @@ a {
   font-weight: bold;
 }
 
-#my-carousel {
+/*#my-carousel {
   background-color: white;
   height: 480px;
   width: 75%;
   margin-left: 148px;
-}
+}*/
 
 #lower-heading {
   color: white;
@@ -246,10 +247,14 @@ a {
 
 .meal-form {
   background-color: white;
+  border: 3px solid;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
-/*#outer-personal {
-  background-color: white;
-  height: 100%;
-  width: 100%;
-  opacity: 0.6;
-}*/
+
+.trash {
+  margin-top: 84px;
+  margin-left: 114px;
+}

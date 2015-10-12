@@ -46,8 +46,8 @@
           <h3>Sunday</h3>
           <hr class="small">
           <button type="button" class="btn btn-info" ng-click="mealForm = true">Get Recipe</button>
-          <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
-          <div class="container" ng-model="recipeInfo2" ng-show="recipeInfo2">
+          <button type="button" class="btn btn-danger trash"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+          <!-- <div class="container" ng-model="recipeInfo2" ng-show="recipeInfo2">
             <div class="row">
               <div class="col-md-6 col-md-offset-3 meal-form">
                 <h3 class="recipe-title">{{recipeResults.title}}</h3>
@@ -57,41 +57,54 @@
                 <button type="button" class="btn btn-danger" ng-click="recipeInfo2 = false; mealForm = false">Cancel</button>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
         <div class="col-md-12 calendar">
           <h3>Monday</h3>
           <hr class="small">
+            <button type="button" class="btn btn-info" ng-click="mealForm = true">Get Recipe</button>
+            <button type="button" class="btn btn-danger trash"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
         </div>
         <div class="col-md-12 calendar">
           <h3>Tuesday</h3>
           <hr class="small">
+          <button type="button" class="btn btn-info" ng-click="mealForm = true">Get Recipe</button>
+          <button type="button" class="btn btn-danger trash"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
         </div>
         <div class="col-md-12 calendar">
           <h3>Wednesday</h3>
           <hr class="small">
+          <button type="button" class="btn btn-info" ng-click="mealForm = true">Get Recipe</button>
+          <button type="button" class="btn btn-danger trash"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
         </div>
         <div class="col-md-12 calendar">
           <h3>Thursday</h3>
           <hr class="small">
+          <button type="button" class="btn btn-info" ng-click="mealForm = true">Get Recipe</button>
+          <button type="button" class="btn btn-danger trash"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
         </div>
         <div class="col-md-12 calendar">
           <h3>Friday</h3>
           <hr class="small">
+          <button type="button" class="btn btn-info" ng-click="mealForm = true">Get Recipe</button>
+          <button type="button" class="btn btn-danger trash"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
         </div>
         <div class="col-md-12 calendar">
           <h3>Saturday</h3>
           <hr class="small">
+          <button type="button" class="btn btn-info" ng-click="mealForm = true">Get Recipe</button>
+          <button type="button" class="btn btn-danger trash"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
         </div>
       </div> <!-- close row -->
     </div>  <!-- close container  -->
 
+    <br>
     <div ng-controller="RecipePuppy">
 
       <div class="container">
         <div class="row">
-          <div class="col-md-6 col-md-offset-3 meal-form">
-            <form class="form-inline" ng-model="mealForm" ng-show="mealForm" ng-submit="submit(); recipeInfo2 = true">
+          <div class="col-md-6 col-md-offset-3">
+            <form class="form-inline meal-form" ng-model="mealForm" ng-show="mealForm" ng-submit="submit(); recipeInfo2 = true">
               <div class="form-group">
                 <label for="search">Category</label>
                 <input type="text" ng-model="query" name="query" class="form-control" placeholder="Type">
@@ -100,71 +113,33 @@
                 <label for="ingredients">Ingredients</label>
                 <input type="text" ng-model="ingredients" name="ingredients" class="form-control" placeholder="Ingredients">
               </div>
+              <br>
               <button type="submit" class="btn btn-info" ng-click="getRecipePuppy(); recipeInfo2 = true">Submit</button>
               <button type="button" class="btn btn-danger" ng-click="mealForm = false">Cancel</button>
             </form>
           </div>
         </div>
-    
+        <br>
 
         <div class="container" ng-model="recipeInfo2" ng-show="recipeInfo2">
           <div class="row">
-            <div class="col-md-6 col-md-offset-3 meal-form">
-              <h3 class="recipe-title">{{recipeResults.title}}</h3>
-              <a id="recipe-img" ng-href="{{recipeResults.href}}"><img ng-src="{{recipeResults.thumbnail}}" alt="{{recipeResults.href}}"></a>
-              <h3>Shopping List</h3>
-              <p class="home-text">{{recipeResults.ingredients}}</p>
-              <button type="button" class="btn btn-danger" ng-click="recipeInfo2 = false; mealForm = false">Cancel</button>
-              <button type="button" class="btn btn-info" ng-click="recipeInfo2 = false; mealForm = false">Approve</button>
-            </div>
+            <div class="col-md-6 col-md-offset-3">
+              <div class="meal-form">
+                <h3 class="recipe-title">{{recipeResults.title}}</h3>
+                <a id="recipe-img" ng-href="{{recipeResults.href}}"><img ng-src="{{recipeResults.thumbnail}}" alt="Click here to see Recipe"></a>
+                <h3>Shopping List:</h3>
+                <div id="shopping-list">
+                </div>
+                <button type="button" class="btn btn-danger" ng-click="recipeInfo2 = false; mealForm = false">Cancel</button>
+                <button type="button" class="btn btn-success" ng-click="recipeInfo2 = false; mealForm = false">Approve</button>
+              </div>
             </div>
           </div>
         </div>
+        <br><br>
       </div>
 
     </div>
-
-    <!-- <div ng-controller="CarouselDemoCtrl">
-      <carousel>
-        <slide ng-repeat="slide in slides" active="slide.active">
-          <img ng-src="{{slide.image}}">
-          <div class="carousel-caption">
-            <h4>Slide {{$index+1}}</h4>
-          </div>
-        </slide>
-      </carousel>
-    </div>
-
-
-<br>
-<br>
-
-  
-
-
-
-
-<!-- <p>
-  <a href="/">Back to Search</a>
-</p>
-
-Forecast for {{ city }}
-<hr />
-Days: <a href="#/forecast/2" ng-class="{'bg-primary': days === '2'}">2</a> | <a href="#/forecast/5" ng-class="{'bg-primary': days === '5'}">5</a> | <a href="#/forecast/7" ng-class="{'bg-primary': days === '7'}">7</a>
-<hr />
-
-<div ng-repeat="w in weatherResult.list">
-  <div class="row">
-    <div class="col-md-12">
-      <weather-report weather-day='w' convert-to-standard="convertToFahrenheit(daytimeTemp)" convert-to-date="convertToDate(dt)" date-format="MMMM d, y"></weather-report>
-    </div>
-  </div>
-</div> -->
-
-
-
-
-
 
     <add-recipe></add-recipe>
 
