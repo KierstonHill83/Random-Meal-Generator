@@ -185,6 +185,11 @@ a {
   margin-top: 630px;
 }
 
+#about-img {
+  height: 250px;
+  width: 200px;
+}
+
 #personal-background {
   text-align: center;
   background: url(/img/pallet.jpg) no-repeat center center;
