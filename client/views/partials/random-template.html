@@ -19,16 +19,18 @@
 
   <br><br>
   <div class="container" ng-model="recipeInfo" ng-show="recipeInfo" id="recipe-results">
-  	<div class="row">
-  		<div class="col-md-6 col-md-offset-3">
-  			<h3 class="recipe-title">{{recipeResults.title}}</h3>
-        <a id="recipe-img" ng-href="{{recipeResults.href}}"><img ng-src="{{recipeResults.thumbnail}}" alt="{{recipeResults.href}}"></a>
-        <h3>Shopping List</h3>
-  			<ul class="home-text">
-          <li>{{recipeResults.ingredients}}</li>
-        </ul>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <h3 class="recipe-title">{{recipeResults.title}}</h3>
+        <a ng-href="{{recipeResults.href}}"><img id="recipe-img" ng-src="{{recipeResults.thumbnail}}" alt="Click here to see Recipe"></a>
+        <h3>Shopping List:</h3>
+        <div id="shopping-list">
+        </div>
+        <!-- <ul class="home-text">
+          <li>{{newElement}}</li>
+        </ul> -->
         <button type="button" class="btn btn-danger" ng-click="recipeInfo = false; randomMealForm = false">Cancel</button>
-  		</div>
-  	</div>
+      </div>
+    </div>
   </div>
 </div>

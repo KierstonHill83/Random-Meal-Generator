@@ -7,7 +7,7 @@
 //  });
 
 //  $scope.submit = function() {
-//  	$location.path ('/personal');
+//    $location.path ('/personal');
 //  };
 
 // }]);
@@ -40,12 +40,12 @@ app.controller('forecastController', ['$scope', '$resource', 'cityService', '$ro
 
    
 
-	$scope.convertToFahrenheit = function(degk) {
-		return Math.round((1.8 * (degk - 273)) + 32);
-	};
+  $scope.convertToFahrenheit = function(degk) {
+    return Math.round((1.8 * (degk - 273)) + 32);
+  };
 
-	$scope.convertToDate = function(dt) {
-		return new Date(dt * 1000);
-	};
+  $scope.convertToDate = function(dt) {
+    return new Date(dt * 1000);
+  };
 
 }]);

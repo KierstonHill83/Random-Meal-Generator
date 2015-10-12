@@ -1,3 +1,3 @@
 app.service('cityService', function(){
- this.city = "Denver, CO";
+  this.city = "Denver, CO";
 });
