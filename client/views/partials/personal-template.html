@@ -22,7 +22,7 @@
               <div class="form-group">
                 <input type="text" class="form-control" placeholder="Forecast by City" ng-model="city">
               </div>
-              <button type="submit" class="btn btn-info">Submit</button>
+              <button type="submit" class="btn btn-info" ng-click="getWeather()">Submit</button>
             </form>
           </div>
           <!-- <ul class="nav navbar-nav">
@@ -140,6 +140,25 @@
       </div>
 
     </div>
+
+    <div ng-repeat="w in weatherResult">
+      <div class="row">
+        <div class="col-md-12">
+          <weather-report weather-day='w' convert-to-standard="convertToFahrenheit(daytimeTemp)" convert-to-date="convertToDate(dt)" date-format="MMMM d, y"></weather-report>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">{{dateResults | date: 'fullDate'}}</h3>
+      </div>
+      <div class="panel panel-body">
+        Daytime temperature: {{weatherResults}}
+      </div>
+    </div>
+
+    
 
     <add-recipe></add-recipe>
 

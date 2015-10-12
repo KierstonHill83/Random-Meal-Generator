@@ -32,8 +32,3 @@ app.controller('RecipePuppy', ['$scope', '$http', function($scope, $http) {
  
   
 }]);
-
-  
-
-        
-        
