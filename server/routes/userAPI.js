@@ -18,7 +18,7 @@ router.post('/register', function(req, res) {
 router.post('/login', function(req, res, next) {
   passport.authenticate('local', function(err, user, info) {
     if (err) {
-      return next(err);
+      return res.status(500).json({err: err});
     }
     if (!user) {
       return res.status(401).json({err: info});
@@ -34,7 +34,6 @@ router.post('/login', function(req, res, next) {
 
 router.get('/logout', function(req, res) {
   req.logout();
-  // console.log(req.isAuthenticated())
   res.status(200).json({status: 'Bye!'});
 });
 

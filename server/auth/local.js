@@ -11,5 +11,3 @@ passport.deserializeUser(User.deserializeUser());
 init();
 
 module.exports = passport;
-
-//this is also in my app.js...do I need it both places?

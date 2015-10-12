@@ -1,7 +1,5 @@
-app.controller('RecipePuppy', ['$scope', '$http', function($scope, $http) {
-
-    // $scope.recipeTitle = '';
-    // $scope.recipeIngredients = '';
+app.controller('RecipePuppy', ['$scope', '$http', '$location', 'AuthService', 
+  function($scope, $http, $location, AuthService) {
    
   $scope.getRecipePuppy = function() { 
     $http.get('/api/recipes/results/' + $scope.ingredients + '/' + $scope.query + '/' + '1')
@@ -17,7 +15,6 @@ app.controller('RecipePuppy', ['$scope', '$http', function($scope, $http) {
     });
   };
   $scope.getRecipePuppy();
-     // return $scope.recipeTitle, $scope.recipeIngredients;
 
   $scope.getList = function(list) {
     var listIngredients = list.split(',');
@@ -27,7 +24,33 @@ app.controller('RecipePuppy', ['$scope', '$http', function($scope, $http) {
       $scope.newElement += '<li>' + listIngredients[i].trim() + '</li>';
     }
     angular.element(document.querySelector('#shopping-list')).append('<ul class="list-items">' + $scope.newElement + '</ul>');
-    //$scope.newElement.append('#shopping-list');
+  };
+
+  $scope.login = function () {
+
+    console.log('hi');
+
+    // initial values
+    $scope.error = false;
+    $scope.disabled = true;
+
+    // call login from service
+    AuthService.login($scope.loginForm.username, $scope.loginForm.password)
+      // handle success
+      .then(function () {
+        console.log('test');
+        $location.path('/personal');
+        $scope.disabled = false;
+        $scope.loginForm = {};
+      })
+      // handle error
+      .catch(function () {
+        $scope.error = true;
+        $scope.errorMessage = "Invalid username and/or password";
+        $scope.disabled = false;
+        $scope.loginForm = {};
+      });
+
   };
  
   

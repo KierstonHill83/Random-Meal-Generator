@@ -231,12 +231,16 @@ a {
   font-weight: bold;
 }
 
-/*#my-carousel {
+#my-carousel {
   background-color: white;
-  height: 480px;
-  width: 75%;
-  margin-left: 148px;
-}*/
+  height: 520px;
+  width: 766px;
+  margin-left: 337px;
+}
+
+.recipe-form {
+
+}
 
 #lower-heading {
   color: white;
@@ -247,15 +251,19 @@ a {
 }
 
 .meal-form {
+  width: 200px;
+}
+
+/*.meal-form {
   background-color: white;
   border: 3px solid;
   padding-top: 20px;
   padding-bottom: 20px;
   padding-left: 20px;
   padding-right: 20px;
-}
+}*/
 
-.trash {
+/*.trash {
   margin-top: 84px;
   margin-left: 114px;
-}
+}*/

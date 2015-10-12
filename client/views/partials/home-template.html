@@ -16,12 +16,12 @@
 
 		      <!-- Collect the nav links, forms, and other content for toggling -->
 		      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		        <form class="navbar-form navbar-left" role="search" ng-submit="login()">
+		        <form class="navbar-form navbar-left" ng-submit="login()">
 		          <div class="form-group">
-		            <input type="text" class="form-control" placeholder="Username" ng-model="loginForm.username">
+		            <input type="text" class="form-control" name="username" placeholder="Username" ng-model="loginForm.username">
 		          </div>
 		          <div class="form-group">
-		            <input type="password" class="form-control" placeholder="Password" ng-model="loginForm.password">
+		            <input type="password" class="form-control" name="password" placeholder="Password" ng-model="loginForm.password">
 		          </div>
 		          <button type="submit" class="btn btn-info" ng-disabled="disabled">Login</button>
 		        </form>

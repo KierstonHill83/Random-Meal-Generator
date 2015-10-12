@@ -1,5 +1,5 @@
-app.controller('personalController', ['$scope', '$http', 'cityService', '$routeParams', '$location', 'AuthService', 
-  function($scope, $http, cityService, $routeParams, $location, AuthService){
+app.controller('personalController', ['$scope', '$http', '$routeParams', '$location', 'cityService', 'AuthService', 
+  function($scope, $http, $routeParams, $location, cityService, AuthService){
 
   $scope.logout = function () {
 
@@ -15,7 +15,12 @@ app.controller('personalController', ['$scope', '$http', 'cityService', '$routeP
       });
   };
 
-  $scope.city = '';
+  $scope.city = cityService.city;
+
+  $scope.$watch('city', function(){
+   cityService.city = $scope.city;
+  });
+
   
   $scope.getWeather = function() { 
     $http.get('/api/recipes/weather/' + $scope.city + '/' + '7')
@@ -37,10 +42,5 @@ app.controller('personalController', ['$scope', '$http', 'cityService', '$routeP
   // $scope.convertToFahrenheit = function(degk) {
   //   return Math.round((1.8 * (degk - 273)) + 32);
   // };
- 
-
-
-
-
 
 }]);

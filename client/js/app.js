@@ -18,11 +18,11 @@ app.config(function($routeProvider) {
     //  controller: 'recipePuppy',
     //  access: {restricted: false}
     // })
-    .when('/login', {
-      controller: 'loginController',
-      redirectTo: '/home',
-      access: {restricted: false}
-    })
+    // .when('/login', {
+    //   controller: 'loginController',
+    //   redirectTo: '/home',
+    //   access: {restricted: false}
+    // })
     .when('/logout', {
       controller: 'logoutController',
       redirectTo: '/home',
@@ -50,11 +50,6 @@ app.config(function($routeProvider) {
       controller:'personalController',
       access: {restricted: true}
     })
-    // .when('/personal/:days', {
-    //  templateUrl: '../views/partials/personal.html',
-    //  controller: 'forecastController',
-    //  access: {restricted: true}
-    // })
     .otherwise({
       redirectTo: '/'
     });
