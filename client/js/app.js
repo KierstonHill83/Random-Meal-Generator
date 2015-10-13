@@ -1,9 +1,8 @@
-var app = angular.module('mealGenerator', ['ngRoute']);
+var app = angular.module('mealGenerator', ['ngRoute', 'ui.bootstrap']);
 
 app.config(function($routeProvider) {
   $routeProvider
     .when('/', {
-      // templateUrl: '../views/index.html',
       access: {restricted: false},
       controller: 'myMealController',
       redirectTo: '/home'
@@ -13,16 +12,6 @@ app.config(function($routeProvider) {
       controller: 'RecipePuppy',
       access: {restricted: false}
     })
-    // .when('/random', {
-    //  templateUrl: '/views/partials/random-template.html',
-    //  controller: 'recipePuppy',
-    //  access: {restricted: false}
-    // })
-    // .when('/login', {
-    //   controller: 'loginController',
-    //   redirectTo: '/home',
-    //   access: {restricted: false}
-    // })
     .when('/logout', {
       controller: 'logoutController',
       redirectTo: '/home',
@@ -41,10 +30,6 @@ app.config(function($routeProvider) {
       templateUrl: '/views/partials/about-template.html',
       access: {restricted: false}
     })
-    // .when('/personal', {
-    //   template:'<div ng-controller="logoutController"><a class="btn" ng-click="logout()">Logout</a></div>',
-    //   access: {restricted: true}
-    // })
     .when('/personal', {
       templateUrl: '../views/partials/personal-template.html',
       controller:'personalController',

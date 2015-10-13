@@ -4,6 +4,7 @@ var passport = require('passport');
 var User = require('../models/user.js');
 
 
+
 router.post('/register', function(req, res) {
   User.register(new User({ username: req.body.username }), req.body.password, function(err, account) {
     if (err) {
@@ -16,15 +17,19 @@ router.post('/register', function(req, res) {
 });
 
 router.post('/login', function(req, res, next) {
+  console.log('login')
   passport.authenticate('local', function(err, user, info) {
     if (err) {
+      console.log('first if');
       return res.status(500).json({err: err});
     }
     if (!user) {
+      console.log('second if');
       return res.status(401).json({err: info});
     }
     req.logIn(user, function(err) {
       if (err) {
+        console.log('third if');
         return res.status(500).json({err: 'Could not log in user'});
       }
       res.status(200).json({status: 'Login successful!'});

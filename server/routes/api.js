@@ -114,6 +114,7 @@ router.post('/recipes', function(req, res, next) {
   });
 });
 
+
 // PUT single recipe
 router.put('/recipe/:id', function(req, res, next) {
   Recipe.findById(req.params.id, function(err, data) {

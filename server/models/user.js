@@ -8,7 +8,10 @@ var User = new Schema({
   city: String,
   email: String,
   allergies: [String],
-  recipes: [String]
+  recipes: [{
+    recipe: String,
+    date: String
+  }]
 });
 
 User.plugin(passportLocalMongoose);
