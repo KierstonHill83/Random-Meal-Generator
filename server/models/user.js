@@ -8,10 +8,13 @@ var User = new Schema({
   city: String,
   email: String,
   allergies: [String],
-  recipes: [{
-    recipe: String,
-    date: String
-  }]
+  recipes: [
+    {
+      title: String,
+      description: String,
+      url: String
+    }
+  ]
 });
 
 User.plugin(passportLocalMongoose);
@@ -19,5 +22,3 @@ User.plugin(passportLocalMongoose);
 mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/mean-auth');
 
 module.exports = mongoose.model('users', User);
-
-// maybe add in an array for meals for the calendar??

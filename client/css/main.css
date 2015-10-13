@@ -195,11 +195,10 @@ a {
   text-align: center;
   background: url(/img/pallet.jpg) no-repeat center center;
   background-size: cover;
-  min-height: 800px;
+  min-height: 900px;
   height: 100%;
   width: 100%;
   opacity: 0.9;
-  z-index: -1;
 }
 
 .calendar-header {
@@ -270,11 +269,13 @@ a {
 }
 
 .personal-shopping {
-  border: 2px solid;
+  border: 3px solid;
   background-color: white;
-  width: 100px;
+  width: 250px;
   height: 100%;
-  z-index: 2;
+  margin-left: 239px;
+  margin-top: 21px;
+  padding-bottom: 15px;
 }
 
 /*.meal-form {

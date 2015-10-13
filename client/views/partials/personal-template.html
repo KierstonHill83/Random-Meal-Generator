@@ -41,24 +41,14 @@
       <br>
 
     <div id="my-carousel" class="carousel slide">
-      <!-- Indicators -->
-     <!--  <ol class="carousel-indicators">
-        <li data-target="#my-carousel" data-slide-to="0" class="active"></li>
-        <li data-target="#my-carousel" data-slide-to="1"></li>
-        <li data-target="#my-carousel" data-slide-to="2"></li>
-        <li data-target="#my-carousel" data-slide-to="3"></li>
-        <li data-target="#my-carousel" data-slide-to="4"></li>
-        <li data-target="#my-carousel" data-slide-to="5"></li>
-        <li data-target="#my-carousel" data-slide-to="6"></li>
-      </ol> -->
 
       <!-- Wrapper for slides -->
       <div class="carousel-inner" role="listbox" interval="myInterval">
         <div class="item active">
           <h1><strong>{{dateResults | date: 'fullDate'}}</strong></h1>
-          <h2>Daytime temperature: {{weatherResults}}</h2>
+          <h2>Temperature: {{weatherResults}}</h2>
           <hr class="small">
-          <button type="button" class="btn btn-info btn-lg meal-form" ng-click="mealForm = true">Get Recipe</button>
+          <button type="button" ng-model="recipeButton1" ng-hide="recipeButton" class="btn btn-info btn-lg meal-form" ng-click="mealForm = true">Get Recipe</button>
           <!-- <button type="button" class="btn btn-danger trash"><span class="glyphicon glyphicon-trash" aria-hidden="true"> -->
 
           
@@ -92,28 +82,26 @@
                       <h3 class="recipe-title2">{{recipeResults.title}}</h3>
                       <a class="personal-image" ng-href="{{recipeResults.href}}"><img ng-src="{{recipeResults.thumbnail}}" alt="Click here to see Recipe"></a><br>
                       <div class="personal-buttons">
-                        <button type="button" class="btn btn-danger" ng-click="recipeInfo2 = false; mealForm = false">Cancel</button>
-                        <button type="button" class="btn btn-success" ng-click="recipeInfo2 = false; mealForm = false">Approve</button>
-                      </div>
-                    </div>
-                    <div class="personal-shopping">
-                      <h3>Shopping List:</h3>
-                      <div id="shopping-list">
+                        <button ng-model="cancelButton" ng-hide="cancelButton" type="button" class="btn btn-danger" ng-click="recipeInfo2 = false; mealForm = false">Cancel</button>
+                        <button type="button" class="btn btn-primary" ng-click="personalShoppingList = false">See Shopping List</button>
+                        <button type="button" ng-class="approveButton" ng-hide="approveButton" class="btn btn-success" ng-click="cancelButton = true; mealForm = false; pushRecipes(); recipeButton1 = true; approveButton = true">Approve</button>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+            <div class="personal-shopping" ng-model="personalShoppingList" ng-show="personalShoppingList">
+              <h3>Shopping List:</h3>
+              <div id="shopping-list">
+              </div>
+            </div>
           </div>
-         <!--  <div class="carousel-caption">
-            </span></button>
-          </div> -->
         </div>
 
         <div class="item">
           <h1><strong>{{dateResults2 | date: 'fullDate'}}</strong></h1>
-          <h2>Daytime temperature: {{weatherResults2}}</h2>
+          <h2>Temperature: {{weatherResults2}}</h2>
           <hr class="small">
           <button type="button" class="btn btn-info btn-lg meal-form" ng-click="mealForm = true">Get Recipe</button>
           
@@ -131,8 +119,10 @@
                       <input type="text" ng-model="ingredients" name="ingredients" class="form-control" placeholder="Ingredients">
                     </div>
                     <br>
-                    <button type="submit" class="btn btn-info" ng-click="getRecipePuppy(); recipeInfo2 = true">Submit</button>
-                    <button type="button" class="btn btn-danger" ng-click="mealForm = false">Cancel</button>
+                    <div class="personal-buttons">
+                      <button type="submit" class="btn btn-info" ng-click="getRecipePuppy(); recipeInfo2 = true">Submit</button>
+                      <button type="button" class="btn btn-danger" ng-click="mealForm = false">Cancel</button>
+                    </div>
                   </form>
                 </div>
               </div>
@@ -140,29 +130,31 @@
 
               <div class="container" ng-model="recipeInfo2" ng-show="recipeInfo2">
                 <div class="row">
-                  <div class="col-md-6 col-md-offset-3">
-                    <div class="">
-                      <h3 class="recipe-title">{{recipeResults.title}}</h3>
-                      <a id="recipe-img" ng-href="{{recipeResults.href}}"><img ng-src="{{recipeResults.thumbnail}}" alt="Click here to see Recipe"></a>
-                      <h3>Shopping List:</h3>
-                      <div id="shopping-list">
+                  <div class="col-md-12">
+                    <div class="personal-results">
+                      <h3 class="recipe-title2">{{recipeResults.title}}</h3>
+                      <a class="personal-image" ng-href="{{recipeResults.href}}"><img ng-src="{{recipeResults.thumbnail}}" alt="Click here to see Recipe"></a><br>
+                      <div class="personal-buttons">
+                        <button type="button" class="btn btn-danger" ng-click="recipeInfo2 = false; mealForm = false">Cancel</button>
+                        <button type="button" class="btn btn-primary" ng-click="personalShoppingList = false">See Shopping List</button>
+                        <button type="button" class="btn btn-success" ng-click="recipeInfo2 = false; mealForm = false">Approve</button>
                       </div>
-                      <button type="button" class="btn btn-danger" ng-click="recipeInfo2 = false; mealForm = false">Cancel</button>
-                      <button type="button" class="btn btn-success" ng-click="recipeInfo2 = false; mealForm = false">Approve</button>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="carousel-caption">
-            </span></button>
+            <div class="personal-shopping" ng-model="personalShoppingList" ng-show="personalShoppingList">
+              <h3>Shopping List:</h3>
+              <div id="shopping-list">
+              </div>
+            </div>
           </div>
         </div>
 
         <div class="item">
           <h1><strong>{{dateResults3 | date: 'fullDate'}}</strong></h1>
-          <h2>Daytime temperature: {{weatherResults3}}</h2>
+          <h2>Temperature: {{weatherResults3}}</h2>
           <hr class="small">
           <button type="button" class="btn btn-info btn-lg meal-form" ng-click="mealForm = true">Get Recipe</button>
           
@@ -180,8 +172,10 @@
                       <input type="text" ng-model="ingredients" name="ingredients" class="form-control" placeholder="Ingredients">
                     </div>
                     <br>
-                    <button type="submit" class="btn btn-info" ng-click="getRecipePuppy(); recipeInfo2 = true">Submit</button>
-                    <button type="button" class="btn btn-danger" ng-click="mealForm = false">Cancel</button>
+                    <div class="personal-buttons">
+                      <button type="submit" class="btn btn-info" ng-click="getRecipePuppy(); recipeInfo2 = true">Submit</button>
+                      <button type="button" class="btn btn-danger" ng-click="mealForm = false">Cancel</button>
+                    </div>
                   </form>
                 </div>
               </div>
@@ -189,29 +183,31 @@
 
               <div class="container" ng-model="recipeInfo2" ng-show="recipeInfo2">
                 <div class="row">
-                  <div class="col-md-6 col-md-offset-3">
-                    <div class="">
-                      <h3 class="recipe-title">{{recipeResults.title}}</h3>
-                      <a id="recipe-img" ng-href="{{recipeResults.href}}"><img ng-src="{{recipeResults.thumbnail}}" alt="Click here to see Recipe"></a>
-                      <h3>Shopping List:</h3>
-                      <div id="shopping-list">
+                  <div class="col-md-12">
+                    <div class="personal-results">
+                      <h3 class="recipe-title2">{{recipeResults.title}}</h3>
+                      <a class="personal-image" ng-href="{{recipeResults.href}}"><img ng-src="{{recipeResults.thumbnail}}" alt="Click here to see Recipe"></a><br>
+                      <div class="personal-buttons">
+                        <button type="button" class="btn btn-danger" ng-click="recipeInfo2 = false; mealForm = false">Cancel</button>
+                        <button type="button" class="btn btn-primary" ng-click="personalShoppingList = false">See Shopping List</button>
+                        <button type="button" class="btn btn-success" ng-click="recipeInfo2 = false; mealForm = false">Approve</button>
                       </div>
-                      <button type="button" class="btn btn-danger" ng-click="recipeInfo2 = false; mealForm = false">Cancel</button>
-                      <button type="button" class="btn btn-success" ng-click="recipeInfo2 = false; mealForm = false">Approve</button>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="carousel-caption">
-            </span></button>
+            <div class="personal-shopping" ng-model="personalShoppingList" ng-show="personalShoppingList">
+              <h3>Shopping List:</h3>
+              <div id="shopping-list">
+              </div>
+            </div>
           </div>
         </div>
 
         <div class="item">
           <h1><strong>{{dateResults4 | date: 'fullDate'}}</strong></h1>
-          <h2>Daytime temperature: {{weatherResults4}}</h2>
+          <h2>Temperature: {{weatherResults4}}</h2>
           <hr class="small">
           <button type="button" class="btn btn-info btn-lg meal-form" ng-click="mealForm = true">Get Recipe</button>
           
@@ -229,8 +225,10 @@
                       <input type="text" ng-model="ingredients" name="ingredients" class="form-control" placeholder="Ingredients">
                     </div>
                     <br>
-                    <button type="submit" class="btn btn-info" ng-click="getRecipePuppy(); recipeInfo2 = true">Submit</button>
-                    <button type="button" class="btn btn-danger" ng-click="mealForm = false">Cancel</button>
+                    <div class="personal-buttons">
+                      <button type="submit" class="btn btn-info" ng-click="getRecipePuppy(); recipeInfo2 = true">Submit</button>
+                      <button type="button" class="btn btn-danger" ng-click="mealForm = false">Cancel</button>
+                    </div>
                   </form>
                 </div>
               </div>
@@ -238,29 +236,31 @@
 
               <div class="container" ng-model="recipeInfo2" ng-show="recipeInfo2">
                 <div class="row">
-                  <div class="col-md-6 col-md-offset-3">
-                    <div class="">
-                      <h3 class="recipe-title">{{recipeResults.title}}</h3>
-                      <a id="recipe-img" ng-href="{{recipeResults.href}}"><img ng-src="{{recipeResults.thumbnail}}" alt="Click here to see Recipe"></a>
-                      <h3>Shopping List:</h3>
-                      <div id="shopping-list">
+                  <div class="col-md-12">
+                    <div class="personal-results">
+                      <h3 class="recipe-title2">{{recipeResults.title}}</h3>
+                      <a class="personal-image" ng-href="{{recipeResults.href}}"><img ng-src="{{recipeResults.thumbnail}}" alt="Click here to see Recipe"></a><br>
+                      <div class="personal-buttons">
+                        <button type="button" class="btn btn-danger" ng-click="recipeInfo2 = false; mealForm = false">Cancel</button>
+                        <button type="button" class="btn btn-primary" ng-click="personalShoppingList = false">See Shopping List</button>
+                        <button type="button" class="btn btn-success" ng-click="recipeInfo2 = false; mealForm = false">Approve</button>
                       </div>
-                      <button type="button" class="btn btn-danger" ng-click="recipeInfo2 = false; mealForm = false">Cancel</button>
-                      <button type="button" class="btn btn-success" ng-click="recipeInfo2 = false; mealForm = false">Approve</button>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="carousel-caption">
-            </span></button>
+            <div class="personal-shopping" ng-model="personalShoppingList" ng-show="personalShoppingList">
+              <h3>Shopping List:</h3>
+              <div id="shopping-list">
+              </div>
+            </div>
           </div>
         </div>
 
         <div class="item">
           <h1><strong>{{dateResults5 | date: 'fullDate'}}</strong></h1>
-          <h2>Daytime temperature: {{weatherResults5}}</h2>
+          <h2>Temperature: {{weatherResults5}}</h2>
           <hr class="small">
           <button type="button" class="btn btn-info btn-lg meal-form" ng-click="mealForm = true">Get Recipe</button>
           
@@ -278,8 +278,10 @@
                       <input type="text" ng-model="ingredients" name="ingredients" class="form-control" placeholder="Ingredients">
                     </div>
                     <br>
-                    <button type="submit" class="btn btn-info" ng-click="getRecipePuppy(); recipeInfo2 = true">Submit</button>
-                    <button type="button" class="btn btn-danger" ng-click="mealForm = false">Cancel</button>
+                    <div class="personal-buttons">
+                      <button type="submit" class="btn btn-info" ng-click="getRecipePuppy(); recipeInfo2 = true">Submit</button>
+                      <button type="button" class="btn btn-danger" ng-click="mealForm = false">Cancel</button>
+                    </div>
                   </form>
                 </div>
               </div>
@@ -287,29 +289,31 @@
 
               <div class="container" ng-model="recipeInfo2" ng-show="recipeInfo2">
                 <div class="row">
-                  <div class="col-md-6 col-md-offset-3">
-                    <div class="">
-                      <h3 class="recipe-title">{{recipeResults.title}}</h3>
-                      <a id="recipe-img" ng-href="{{recipeResults.href}}"><img ng-src="{{recipeResults.thumbnail}}" alt="Click here to see Recipe"></a>
-                      <h3>Shopping List:</h3>
-                      <div id="shopping-list">
+                  <div class="col-md-12">
+                    <div class="personal-results">
+                      <h3 class="recipe-title2">{{recipeResults.title}}</h3>
+                      <a class="personal-image" ng-href="{{recipeResults.href}}"><img ng-src="{{recipeResults.thumbnail}}" alt="Click here to see Recipe"></a><br>
+                      <div class="personal-buttons">
+                        <button type="button" class="btn btn-danger" ng-click="recipeInfo2 = false; mealForm = false">Cancel</button>
+                        <button type="button" class="btn btn-primary" ng-click="personalShoppingList = false">See Shopping List</button>
+                        <button type="button" class="btn btn-success" ng-click="recipeInfo2 = false; mealForm = false">Approve</button>
                       </div>
-                      <button type="button" class="btn btn-danger" ng-click="recipeInfo2 = false; mealForm = false">Cancel</button>
-                      <button type="button" class="btn btn-success" ng-click="recipeInfo2 = false; mealForm = false">Approve</button>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="carousel-caption">
-            </span></button>
+            <div class="personal-shopping" ng-model="personalShoppingList" ng-show="personalShoppingList">
+              <h3>Shopping List:</h3>
+              <div id="shopping-list">
+              </div>
+            </div>
           </div>
         </div>
 
         <div class="item">
           <h1><strong>{{dateResults6 | date: 'fullDate'}}</strong></h1>
-          <h2>Daytime temperature: {{weatherResults6}}</h2>
+          <h2>Temperature: {{weatherResults6}}</h2>
           <hr class="small">
           <button type="button" class="btn btn-info btn-lg meal-form" ng-click="mealForm = true">Get Recipe</button>
           
@@ -327,8 +331,10 @@
                       <input type="text" ng-model="ingredients" name="ingredients" class="form-control" placeholder="Ingredients">
                     </div>
                     <br>
-                    <button type="submit" class="btn btn-info" ng-click="getRecipePuppy(); recipeInfo2 = true">Submit</button>
-                    <button type="button" class="btn btn-danger" ng-click="mealForm = false">Cancel</button>
+                    <div class="personal-buttons">
+                      <button type="submit" class="btn btn-info" ng-click="getRecipePuppy(); recipeInfo2 = true">Submit</button>
+                      <button type="button" class="btn btn-danger" ng-click="mealForm = false">Cancel</button>
+                    </div>
                   </form>
                 </div>
               </div>
@@ -336,29 +342,31 @@
 
               <div class="container" ng-model="recipeInfo2" ng-show="recipeInfo2">
                 <div class="row">
-                  <div class="col-md-6 col-md-offset-3">
-                    <div class="">
-                      <h3 class="recipe-title">{{recipeResults.title}}</h3>
-                      <a id="recipe-img" ng-href="{{recipeResults.href}}"><img ng-src="{{recipeResults.thumbnail}}" alt="Click here to see Recipe"></a>
-                      <h3>Shopping List:</h3>
-                      <div id="shopping-list">
+                  <div class="col-md-12">
+                    <div class="personal-results">
+                      <h3 class="recipe-title2">{{recipeResults.title}}</h3>
+                      <a class="personal-image" ng-href="{{recipeResults.href}}"><img ng-src="{{recipeResults.thumbnail}}" alt="Click here to see Recipe"></a><br>
+                      <div class="personal-buttons">
+                        <button type="button" class="btn btn-danger" ng-click="recipeInfo2 = false; mealForm = false">Cancel</button>
+                        <button type="button" class="btn btn-primary" ng-click="personalShoppingList = false">See Shopping List</button>
+                        <button type="button" class="btn btn-success" ng-click="recipeInfo2 = false; mealForm = false">Approve</button>
                       </div>
-                      <button type="button" class="btn btn-danger" ng-click="recipeInfo2 = false; mealForm = false">Cancel</button>
-                      <button type="button" class="btn btn-success" ng-click="recipeInfo2 = false; mealForm = false">Approve</button>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="carousel-caption">
-            </span></button>
+            <div class="personal-shopping" ng-model="personalShoppingList" ng-show="personalShoppingList">
+              <h3>Shopping List:</h3>
+              <div id="shopping-list">
+              </div>
+            </div>
           </div>
         </div>
 
         <div class="item">
           <h1><strong>{{dateResults7 | date: 'fullDate'}}</strong></h1>
-          <h2>Daytime temperature: {{weatherResults7}}</h2>
+          <h2>Temperature: {{weatherResults7}}</h2>
           <hr class="small">
           <button type="button" class="btn btn-info btn-lg meal-form" ng-click="mealForm = true">Get Recipe</button>
           
@@ -376,8 +384,10 @@
                       <input type="text" ng-model="ingredients" name="ingredients" class="form-control" placeholder="Ingredients">
                     </div>
                     <br>
-                    <button type="submit" class="btn btn-info" ng-click="getRecipePuppy(); recipeInfo2 = true">Submit</button>
-                    <button type="button" class="btn btn-danger" ng-click="mealForm = false">Cancel</button>
+                    <div class="personal-buttons">
+                      <button type="submit" class="btn btn-info" ng-click="getRecipePuppy(); recipeInfo2 = true">Submit</button>
+                      <button type="button" class="btn btn-danger" ng-click="mealForm = false">Cancel</button>
+                    </div>
                   </form>
                 </div>
               </div>
@@ -385,23 +395,25 @@
 
               <div class="container" ng-model="recipeInfo2" ng-show="recipeInfo2">
                 <div class="row">
-                  <div class="col-md-6 col-md-offset-3">
-                    <div class="">
-                      <h3 class="recipe-title">{{recipeResults.title}}</h3>
-                      <a id="recipe-img" ng-href="{{recipeResults.href}}"><img ng-src="{{recipeResults.thumbnail}}" alt="Click here to see Recipe"></a>
-                      <h3>Shopping List:</h3>
-                      <div id="shopping-list">
+                  <div class="col-md-12">
+                    <div class="personal-results">
+                      <h3 class="recipe-title2">{{recipeResults.title}}</h3>
+                      <a class="personal-image" ng-href="{{recipeResults.href}}"><img ng-src="{{recipeResults.thumbnail}}" alt="Click here to see Recipe"></a><br>
+                      <div class="personal-buttons">
+                        <button type="button" class="btn btn-danger" ng-click="recipeInfo2 = false; mealForm = false">Cancel</button>
+                        <button type="button" class="btn btn-primary" ng-click="personalShoppingList = false">See Shopping List</button>
+                        <button type="button" class="btn btn-success" ng-click="recipeInfo2 = false; mealForm = false">Approve</button>
                       </div>
-                      <button type="button" class="btn btn-danger" ng-click="recipeInfo2 = false; mealForm = false">Cancel</button>
-                      <button type="button" class="btn btn-success" ng-click="recipeInfo2 = false; mealForm = false">Approve</button>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="carousel-caption">
-            </span></button>
+            <div class="personal-shopping" ng-model="personalShoppingList" ng-show="personalShoppingList">
+              <h3>Shopping List:</h3>
+              <div id="shopping-list">
+              </div>
+            </div>
           </div>
         </div>
 

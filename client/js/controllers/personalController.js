@@ -1,5 +1,5 @@
-app.controller('personalController', ['$scope', '$http', '$routeParams', '$location', 'cityService', 'AuthService', 
-  function($scope, $http, $routeParams, $location, cityService, AuthService){
+app.controller('personalController', ['$scope', 'recipeFactory', '$http', '$routeParams', '$location', 'cityService', 'AuthService', 
+  function($scope, recipeFactory, $http, $routeParams, $location, cityService, AuthService){
 
   $scope.logout = function () {
 
@@ -16,6 +16,7 @@ app.controller('personalController', ['$scope', '$http', '$routeParams', '$locat
   };
 
   $scope.city = cityService.city;
+  $scope.days = '7';
 
   $scope.$watch('city', function(){
    cityService.city = $scope.city;
@@ -23,7 +24,7 @@ app.controller('personalController', ['$scope', '$http', '$routeParams', '$locat
 
   
   $scope.getWeather = function() { 
-    $http.get('/api/recipes/weather/' + $scope.city + '/' + '7')
+    $http.get('/api/recipes/weather/' + $scope.city + '/' + $scope.days)
     .then(function(data) {
 
       $scope.date = data.data[0].dt;
@@ -69,11 +70,42 @@ app.controller('personalController', ['$scope', '$http', '$routeParams', '$locat
       $scope.weatherResults7 = Math.round((1.8 * ($scope.weather7 - 273)) + 32);
     
     });
-    // return $scope.weatherResults;
+ 
   };
   $scope.getWeather();
 
   $scope.myInterval = 90000000;
+
+ $scope.postRecipe = function(){
+
+  var recipes = [];
+  for (var i = 0; i < $scope.recipeResults.length; i++) {
+    recipes.push(
+    {
+      title: $scope.recipes[i].title,
+      description: $scope.recipes[i].description,
+      url: $scope.recipes[i].url
+    });
+  }
+  console.log(recipes);
+  var payload = {
+    "username": $scope.currentUser,
+    "title": $scope.title,
+    "description": $scope.description,
+    "url": $scope.url,
+  };
+  recipeFactory.post('/api/users', payload)
+  .then(function(response){
+    console.log(response);
+  })
+  .catch(function(){
+    console.log('error');
+
+  });
+};
   
 
 }]);
+
+
+

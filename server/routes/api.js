@@ -2,10 +2,11 @@ var express = require('express');
 var router = express.Router();
 var Recipe = require('../models/recipes.js');
 var http = require('http');
+var User = require('../models/user');
 
-// GET ALL recipes
-router.get('/recipes', function(req, res, next) {
-  Recipe.find({}, function(err, data) {
+// GET ALL users
+router.get('/users', function(req, res, next) {
+  User.find({}, function(err, data) {
     if(err) {
     res.json({'ERROR': err});
     } else {
@@ -14,9 +15,10 @@ router.get('/recipes', function(req, res, next) {
   });
 });
 
-// GET single recipe
-router.get('/recipe/:id', function(req, res, next) {
-  Recipe.findById(req.params.id, function(err, data) {
+// GET single user
+router.get('/user/:id', function(req, res, next) {
+  name = {username: req.user.username};
+  User.findOne(name, function(err, data) {
     if(err) {
       res.json({'ERROR': err});
     } else {
@@ -91,21 +93,61 @@ function weatherService(city, days, response) {
 // Weather data from openWeatherAPI
 router.get('/recipes/weather/:city/:days', function(req, res, next) {
   var city = req.params.city;
-  var days = '7';
+  var days = req.params.days;
   console.log(city);
   weatherService(city, days, res);
 });
 
 
-// POST ALL recipes
-router.post('/recipes', function(req, res, next) {
-  newRecipe = new Recipe({
-    title: req.body.title,
-    ingredients: req.body.ingredients,
-    directions: req.body.directions,
-    serves: req.body.serves
+// POST single user
+// router.post('/users', function(req, res, next) {
+//   var query = {username: req.user.username};
+//   newRecipe = new Recipe({
+//     title: req.body.title,
+//     ingredients: req.body.ingredients,
+//     directions: req.body.directions,
+//     serves: req.body.serves
+//   });
+//   newRecipe.save(function(err, data) {
+//     if(err) {
+//       res.json({'ERROR': err});
+//     } else {
+//       res.json({'SUCCESS': data});
+//     }
+//   });
+// });
+
+
+// PUT/POST single recipe
+router.post('/user/:id', function(req, res, next) {
+  var name = {username: req.user.username};
+  var update = {
+    $push: {recipes:{
+      title: req.body.title,
+      ingredients: req.body.ingredients,
+      url: req.body.url
+    }}
+  };
+  User.findOneAndUpdate(name, update, function(err, data) {
+    if(err) {
+    res.json({'ERROR': err});
+    } else {
+    res.json({'UPDATED': data});
+    }
   });
-  newRecipe.save(function(err, data) {
+});
+
+
+// DELETE one recipe
+router.put('/users/:title/:id', function(req, res) {
+  var info = {'username': req.params.title};
+  var id = req.params.id;
+  var options = {new: true};
+  User.findOneAndUpdate(info,
+    {$pull: {
+      'recipes': {'_id': id}
+    }
+  }, options, function(err, data) {
     if(err) {
       res.json({'ERROR': err});
     } else {
@@ -115,27 +157,9 @@ router.post('/recipes', function(req, res, next) {
 });
 
 
-// PUT single recipe
-router.put('/recipe/:id', function(req, res, next) {
-  Recipe.findById(req.params.id, function(err, data) {
-    recipe.title = req.body.title;
-    recipe.ingredients = req.body.ingredients;
-    recipe.directions = req.body.directions;
-    recipe.serves = req.body.serves;
-    project.save(function(err) {
-      if(err) {
-      res.json({'ERROR': err});
-      } else {
-      res.json({'UPDATED': data});
-      }
-    });
-  });
-});
-
-
-// DELETE single recipe
-router.delete('/recipe/:id', function(req, res, next) {
-  Recipe.findByIdAndRemove(req.params.id, function(err, data) {
+// DELETE single user
+router.delete('/user/:id', function(req, res, next) {
+  User.findOneAndRemove(req.params.id, function(err, data) {
     if(err) {
       res.json({'ERROR': err});
     } else {
