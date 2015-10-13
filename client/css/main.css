@@ -199,6 +199,7 @@ a {
   height: 100%;
   width: 100%;
   opacity: 0.9;
+  z-index: -1;
 }
 
 .calendar-header {
@@ -239,7 +240,8 @@ a {
 }
 
 .recipe-form {
-
+  margin-right: 399px;
+  padding-top: 20px;
 }
 
 #lower-heading {
@@ -252,6 +254,27 @@ a {
 
 .meal-form {
   width: 200px;
+}
+
+.recipe-title2 {
+  font-size: 25px;
+}
+
+.personal-results {
+  margin-right: 415px;
+  margin-top: -20px;
+}
+
+.personal-buttons {
+  padding-top: 15px;
+}
+
+.personal-shopping {
+  border: 2px solid;
+  background-color: white;
+  width: 100px;
+  height: 100%;
+  z-index: 2;
 }
 
 /*.meal-form {
