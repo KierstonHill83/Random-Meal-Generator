@@ -1,6 +1,6 @@
 app.controller('RecipePuppy', ['$scope', '$http', '$location', 'AuthService', 
   function($scope, $http, $location, AuthService) {
-   
+
   $scope.getRecipePuppy = function() { 
     $http.get('/api/recipes/results/' + $scope.ingredients + '/' + $scope.query + '/' + '1')
     .then(function(data) {
@@ -25,6 +25,15 @@ app.controller('RecipePuppy', ['$scope', '$http', '$location', 'AuthService',
     }
     angular.element(document.querySelector('#shopping-list')).append('<ul class="list-items">' + $scope.newElement + '</ul>');
   };
+
+
+  $scope.getData = function() {
+    recipePuppyService.getRecipePuppy($scope.ingredients, $scope.query).success(function(response){
+      $scope.test = response;
+    });
+  };
+  console.log($scope.test);
+
 
   $scope.login = function () {
 

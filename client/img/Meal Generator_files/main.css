@@ -1,0 +1,293 @@
+body {
+  font: 14px 'Lato', sans-serif;;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.navbar-brand {
+  font-size: 25px;
+}
+
+.page-scroll {
+  font-size: 20px;
+}
+
+#add {
+  text-align: center;
+}
+
+.intro-header {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  text-align: center;
+  background: url(/img/vegetables.jpg) no-repeat center center;
+  background-size: cover;
+  height: 730px;
+}
+
+.intro-message > h1 {
+  margin: 0;
+  margin-top: 80px;
+  text-shadow: 4px 4px 7px black;
+  font-size: 6em;
+  color: white;
+}
+
+.img-home {
+  vertical-align: middle;
+  border: 0;
+  display: block;
+  max-width: 100%;
+  height: 359px;
+  width: 100%;
+  margin: 0;
+}
+
+#img-header {
+  font-size: 3em;
+}
+
+#img-row {
+  margin-top: 50px;
+}
+
+.list-items {
+  list-style: none;
+  margin-right: 41px;
+  font-size: 16px;
+}
+
+.social {
+  height: 52px;
+}
+
+.img-social2 {
+  width: 30px;
+  height: 30px;
+}
+
+.img-social {
+  width: 20px;
+  height: 20px;
+}
+
+.social-btns {
+  margin: 0;
+}
+
+.info {
+  font-size: 35px;
+}
+
+#info-section {
+  text-align: center;
+  margin-top: 60px;
+}
+
+.calendar {
+  width: 200px;
+  height: 260px;
+  border: 2px solid;
+  text-align: center;
+  font-weight: bold;
+  background-color: white;
+  margin: 1px;
+}
+
+.calendar-row {
+  margin-left: -137px;
+  margin-right: -137px;
+}
+
+#title {
+  width: 475px;
+}
+
+#randomMealForm {
+  margin-left: 20px;
+}
+
+#recipe-results {
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.recipe-title {
+  font-size: 30px;
+}
+
+#recipe-img {
+  height: 50%;
+  width: 50%; 
+}
+
+#contact-page {
+  text-align: center;
+  background: url(/img/fruit.jpg) no-repeat center center;
+  background-size: cover;
+  height: 750px;
+  width: 100%;
+}
+
+#inner-contact {
+  position: absolute;
+  background-color: #FEE0C6;
+  opacity: 0.8;
+  width: 1000px;
+  margin-top: 10px;
+  border-radius: 4%;
+  height: 720px;
+  margin-left: 90px;
+}
+
+#contact-panel {
+  position: absolute;
+  width: 470px;
+  text-align: left;
+  border-radius: 3%;
+  opacity: 0.9;
+  margin-top: 140px;
+  margin-left: 50px;
+}
+
+.contact-header {
+  font-weight: bold;
+  font-size: 3em;
+}
+
+#contact-social {
+  margin-top: 630px;
+}
+
+#about-page {
+  text-align: center;
+  background: url(/img/fruit.jpg) no-repeat center center;
+  background-size: cover;
+  height: 750px;
+  width: 100%;
+}
+
+#inner-about {
+  position: absolute;
+  background-color: #FEE0C6;
+  opacity: 0.8;
+  width: 75%;
+  margin-top: 10px;
+  border-radius: 4%;
+  height: 720px;
+  margin-left: 165px;
+}
+
+#about-social {
+  margin-top: 630px;
+}
+
+#about-img {
+  height: 250px;
+  width: 200px;
+}
+
+#personal-background {
+  text-align: center;
+  background: url(/img/pallet.jpg) no-repeat center center;
+  background-size: cover;
+  min-height: 900px;
+  height: 100%;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.calendar-header {
+  text-shadow: 4px 4px 7px black;
+  font-size: 6em;
+  color: white;
+}
+
+#register-background {
+  text-align: center;
+  background: url(/img/greyBlur.jpg) no-repeat center center;
+  background-size: cover;
+  min-height: 780px;
+  min-width: 100%;
+  opacity: 0.9;
+}
+
+.register-header {
+  font-size: 5em;
+}
+
+.register-input {
+  height: 35px;
+  width: 400px;
+  margin: auto;
+}
+
+.register-label {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#my-carousel {
+  background-color: white;
+  height: 520px;
+  width: 766px;
+  margin-left: 337px;
+}
+
+.recipe-form {
+  margin-right: 399px;
+  padding-top: 20px;
+}
+
+#lower-heading {
+  color: white;
+}
+
+.home-text {
+  font-size: 16px;
+}
+
+.meal-form {
+  width: 200px;
+}
+
+.recipe-title2 {
+  font-size: 25px;
+}
+
+.personal-results {
+  margin-right: 415px;
+  margin-top: -20px;
+}
+
+.personal-buttons {
+  padding-top: 15px;
+}
+
+.personal-shopping {
+  border: 3px solid;
+  background-color: white;
+  width: 250px;
+  height: 100%;
+  margin-left: 239px;
+  margin-top: 21px;
+  padding-bottom: 15px;
+}
+
+/*.meal-form {
+  background-color: white;
+  border: 3px solid;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+}*/
+
+/*.trash {
+  margin-top: 84px;
+  margin-left: 114px;
+}*/

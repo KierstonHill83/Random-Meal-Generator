@@ -2,13 +2,6 @@ app.controller('registerController',
   ['$scope', '$location', 'AuthService',
   function ($scope, $location, AuthService) {
 
-    // $scope.addForm = false;
-    // $scope.loginTemplate = false;
-    // $scope.registerTemplate = false;
-    // $scope.randomMealForm = false;
-    // $scope.recipeInfo = false;
-    // $scope.personalPage = false;
-
     console.log(AuthService.getUserStatus());
 
     $scope.register = function () {

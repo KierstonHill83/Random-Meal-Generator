@@ -76,33 +76,43 @@ app.controller('personalController', ['$scope', 'recipeFactory', '$http', '$rout
 
   $scope.myInterval = 90000000;
 
- $scope.postRecipe = function(){
+ // $scope.postRecipe = function(){
 
   var recipes = [];
-  for (var i = 0; i < $scope.recipeResults.length; i++) {
-    recipes.push(
-    {
-      title: $scope.recipes[i].title,
-      description: $scope.recipes[i].description,
-      url: $scope.recipes[i].url
-    });
-  }
-  console.log(recipes);
-  var payload = {
-    "username": $scope.currentUser,
-    "title": $scope.title,
-    "description": $scope.description,
-    "url": $scope.url,
-  };
-  recipeFactory.post('/api/users', payload)
-  .then(function(response){
-    console.log(response);
-  })
-  .catch(function(){
-    console.log('error');
+//   for (var i = 0; i < $scope.recipeResults.length; i++) {
+//     recipes.push(
+//     {
+//       title: $scope.recipes[i].title,
+//       description: $scope.recipes[i].description,
+//       url: $scope.recipes[i].url
+//     });
+//   }
+//   console.log(recipes);
+//   var payload = {
+//     "username": $scope.currentUser,
+//     "title": $scope.title,
+//     "description": $scope.description,
+//     "url": $scope.url,
+//   };
+//   recipeFactory.post('/api/users', payload)
+//   .then(function(response){
+//     console.log(response);
+//   })
+//   .catch(function(){
+//     console.log('error');
 
-  });
-};
+//   });
+// };
+
+$scope.postRecipe = function() {
+    var payload = $scope.project;
+    httpFactory.post('/api/users', payload)
+    .then(function(response) {
+      console.log(response);
+      $scope.recipes.push(response.data);
+      
+    });
+  };
   
 
 }]);

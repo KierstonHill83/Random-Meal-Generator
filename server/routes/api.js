@@ -67,7 +67,7 @@ router.get('/recipes/results/:ingredients/:query/:pages', function(req, res, nex
 
 
 function weatherService(city, days, response) {
-  var url = 'http://api.openweathermap.org/data/2.5/forecast/daily?q=' + city + '&cnt=' + days+ '&APPID=';
+  var url = 'http://api.openweathermap.org/data/2.5/forecast/daily?q=' + city + '&cnt=' + days+ '&APPID=65332c346ee77bbdcabc9c12d9125837';
   http.get(url, function(res) {
     var body = "";
     res.on('data', function(chunk) {

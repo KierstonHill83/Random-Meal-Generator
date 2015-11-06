@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<!-- saved from url=(0028)http://localhost:8080/#/home -->
+<html ng-app="mealGenerator" class="ng-scope"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+    <meta charset="utf-8">
+    <title>Meal Generator</title>
+    <link rel="stylesheet" href="./Meal Generator_files/bootstrap.min.css">
+    <link href="./Meal Generator_files/css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="./Meal Generator_files/main.css">
+    
+  </head>
+  <body>
+
+   
+    <!-- ngView:  --><div ng-view="" class="ng-scope">	<div ng-model="homePage" ng-hide="homePage" class="ng-pristine ng-untouched ng-valid ng-scope">
+		<div class="container">
+
+		  <nav class="navbar navbar-default navbar-fixed-top">
+		    <div class="container">
+
+		      <div class="navbar-header">
+		        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+		          <span class="sr-only">Toggle navigation</span>
+		          <span class="icon-bar"></span>
+		          <span class="icon-bar"></span>
+		          <span class="icon-bar"></span>
+		        </button>
+		        <a class="navbar-brand" href="./Meal Generator_files/Meal Generator.html">Meal Generator</a>
+		      </div>
+
+		      <!-- Collect the nav links, forms, and other content for toggling -->
+		      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		        <form class="navbar-form navbar-left ng-pristine ng-valid" ng-submit="login()">
+		          <div class="form-group">
+		            <input type="text" class="form-control ng-pristine ng-untouched ng-valid" name="username" placeholder="Username" ng-model="loginForm.username">
+		          </div>
+		          <div class="form-group">
+		            <input type="password" class="form-control ng-pristine ng-untouched ng-valid" name="password" placeholder="Password" ng-model="loginForm.password">
+		          </div>
+		          <button type="submit" class="btn btn-info" ng-disabled="disabled">Login</button>
+		        </form>
+		        <ul class="nav navbar-nav navbar-left">
+		          <li><a href="http://localhost:8080/#/register">Sign Up</a></li>
+		        </ul>
+		        <ul class="nav navbar-nav navbar-right">
+		        	<li><a href="http://localhost:8080/#info-section">Get a Recipe Now</a></li>
+		          <li><a href="http://localhost:8080/#/contact">Contact</a></li>
+		          <li><a href="http://localhost:8080/#/about">About</a></li>
+		        </ul>
+		      </div> <!-- .navbar-collapse -->
+		    </div>
+		  </nav>
+
+		  <br><br><br><br>
+        <div ng-show="error" class="alert alert-danger ng-binding">{{errorMessage}}</div>
+
+		</div> <!-- close container
+
+		 <!-- Header -->
+		  <div class="intro-header">
+		    <div class="container">
+		      <div class="row">
+		        <div class="col-lg-12">
+		          <div class="intro-message">
+		            <h1 id="heading">Random Meal Generator</h1>
+		            <hr class="intro-divider">
+		            <h2 id="lower-heading">Join for Free</h2>
+		          </div>
+		        </div>
+		      </div>
+		    </div> <!-- end container div -->
+		  </div> <!-- end header div -->
+
+		<div class="container" id="info-section">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="col-md-4">
+						<h2 class="info">Allergies</h2>
+						<hr class="small">
+						<p class="home-text">There are filters available for a wide variety of allergies. Select the food you would not like included in the search.</p>
+					</div>
+					<div class="col-md-4">
+						<h2 class="info">Get a Random Recipe</h2>
+						<hr class="small">
+						<p class="home-text">Click the button below to have a random recipe displayed for you. Input the category and the ingredients you would like.</p>
+						<button type="button" class="btn btn-lg btn-info" ng-click="randomMealForm = true">Click for a Random Recipe</button>	
+					</div>
+					<div class="col-md-4">
+						<h2 class="info">Benefits</h2>
+						<hr class="small">
+						<p class="home-text">When you sign up you can plan a weeks worth of random meals with a shopping list.</p>
+					</div>
+				</div>
+			</div>
+		</div> <!-- close info-section -->
+
+		<random-meal><br><br><br>
+<div>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <form id="randomMealForm" class="form-inline ng-pristine ng-untouched ng-valid" ng-model="randomMealForm" ng-show="randomMealForm" ng-submit="submit(); recipeInfo = true">
+        <div class="form-group">
+          <label for="search">Category</label>
+          <input type="text" ng-model="query" name="query" class="form-control ng-pristine ng-untouched ng-valid" placeholder="Type">
+        </div>
+        <div class="form-group">
+          <label for="ingredients">Ingredients</label>
+          <input type="text" ng-model="ingredients" name="ingredients" class="form-control ng-pristine ng-untouched ng-valid" placeholder="Ingredients">
+        </div>
+        <button type="submit" class="btn btn-info" ng-click="getRecipePuppy()">Submit</button>
+        <button type="button" class="btn btn-danger" ng-click="randomMealForm = false">Cancel</button>
+      </form>
+    </div>
+  </div>
+
+  <br><br>
+  <div class="container ng-pristine ng-untouched ng-valid" ng-model="recipeInfo" ng-show="recipeInfo" id="recipe-results">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <h3 class="recipe-title ng-binding">{{recipeResults.title}}</h3>
+        <a ng-href="{{recipeResults.href}}"><img id="recipe-img" ng-src="{{recipeResults.thumbnail}}" alt="Click here to see Recipe"></a>
+        <h3>Shopping List:</h3>
+        <div id="shopping-list">
+        </div>
+        <button type="button" class="btn btn-danger" ng-click="recipeInfo = false; randomMealForm = false">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div></random-meal>
+
+
+		<div class="row" id="img-row">
+			<div class="col-lg-10 col-lg-offset-1 text-center">
+				<h2 id="img-header">Popular Dishes</h2>
+				<hr class="small">
+				<div class="row">
+					<div class="col-md-6">
+						<img class="img-home img-responsive" src="./Meal Generator_files/drumsticks.jpg" alt="drumsticks">
+					</div>
+					<div class="col-md-6">
+						<img class="img-home img-responsive" src="./Meal Generator_files/enchiladas.jpg" alt="enchiladas">
+					</div>
+				</div>
+				<br><br>
+				<div class="row">
+					<div class="col-md-6">
+						<img class="img-home img-responsive" src="./Meal Generator_files/salad.jpg" alt="salad">
+					</div>
+					<div class="col-md-6">
+						<img class="img-home img-responsive" src="./Meal Generator_files/asian.jpg" alt="chicken">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<br><br>
+		<footer>
+			<div class="container" id="contact-info">
+				<div class="row">
+					<div class="col-lg-12">
+						<ul class="list-inline banner-social-buttons">
+							<li>
+								<a href="" class="btn btn-default btn-lg social"><img class="img-social" src="./Meal Generator_files/twitter.png"> TWITTER</a>
+							</li>
+							<li>
+								<a href="https://github.com/KierstonHill83" class="btn btn-default btn-lg social"><img class="img-social2" src="./Meal Generator_files/github.png"> GITHUB</a>
+							</li>
+							<li>
+								<a href="https://www.linkedin.com/profile/view?id=AAIAABnPlaQB6H340z1FAI3QzrKdfVxaD73qsSs&trk=nav_responsive_tab_profile" class="btn btn-default btn-lg social"><img class="img-social2" src="./Meal Generator_files/linkedin.png"> LINKEDIN</a>
+							</li>
+						</ul>
+						<p class="copyright text-muted small">Copyright © Kierston Hill 2015. All Rights Reserved</p>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div> <!-- close model -->
+
+	
+<!-- put in a validator -->
+</div>
+  
+    
+    <script src="./Meal Generator_files/jquery-2.1.4.min.js"></script>
+    <script src="./Meal Generator_files/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./Meal Generator_files/angular.min.js"></script>
+    <script src="./Meal Generator_files/angular-route.js"></script>
+    <script src="./Meal Generator_files/angular-resource.min.js"></script>
+    <script type="text/javascript" src="./Meal Generator_files/ui-bootstrap-tpls.min.js"></script>
+
+    <script src="./Meal Generator_files/app.js" type="text/javascript"></script>
+
+    <script src="./Meal Generator_files/loginController.js" type="text/javascript"></script>
+    <script src="./Meal Generator_files/myMealController.js" type="text/javascript"></script>
+    <script src="./Meal Generator_files/randomMealController.js" type="text/javascript"></script>
+    <script src="./Meal Generator_files/recipePuppyController.js" type="text/javascript"></script>
+    <script src="./Meal Generator_files/registerController.js" type="text/javascript"></script>
+    <script src="./Meal Generator_files/personalController.js" type="text/javascript"></script>
+    <script src="./Meal Generator_files/logoutController.js" type="text/javascript"></script>
+
+    <script src="./Meal Generator_files/addRecipe.js" type="text/javascript"></script>
+    <script src="./Meal Generator_files/contactPage.js" type="text/javascript"></script>
+    <script src="./Meal Generator_files/homePage.js" type="text/javascript"></script>
+    <script src="./Meal Generator_files/loginPage.js" type="text/javascript"></script>
+    <script src="./Meal Generator_files/personalPage.js" type="text/javascript"></script>
+    <script src="./Meal Generator_files/randomMeal.js" type="text/javascript"></script>
+    <script src="./Meal Generator_files/registerPage.js" type="text/javascript"></script>
+    <script src="./Meal Generator_files/fullWeek.js" type="text/javascript"></script>
+
+    <script src="./Meal Generator_files/authService.js" type="text/javascript"></script>
+    <script src="./Meal Generator_files/recipeFactory.js" type="text/javascript"></script>
+    <script src="./Meal Generator_files/weatherService.js" type="text/javascript"></script>
+    <script src="./Meal Generator_files/recipePuppyService.js" type="text/javascript"></script>
+
+  
+</body></html>
